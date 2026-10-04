@@ -108,7 +108,7 @@
   }
   .word {
     right: var(--gutter);
-    bottom: 1.35rem;
+    bottom: max(1.35rem, calc(env(safe-area-inset-bottom) + 0.5rem));
     left: var(--gutter);
     font-size: clamp(5.2rem, 22vw, 8.1rem);
     line-height: 0.82;
@@ -139,7 +139,7 @@
   .imageWrap { inset: 0 var(--gutter) 4rem; }
   .word {
     right: var(--gutter);
-    bottom: 1.35rem;
+    bottom: max(1.35rem, calc(env(safe-area-inset-bottom) + 0.5rem));
     left: var(--gutter);
     font-size: clamp(5rem, 16vw, 10rem);
     line-height: 0.82;
