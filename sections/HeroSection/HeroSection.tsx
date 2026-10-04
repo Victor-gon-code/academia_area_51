@@ -89,6 +89,7 @@ export default function HeroSection() {
               alt="Fachada real da Academia Área 51 com o letreiro da marca"
               fill
               priority
+              quality={90}
               sizes="(max-width: 900px) 92vw, 52vw"
             />
             <div className={styles.imageShade} aria-hidden="true" />
