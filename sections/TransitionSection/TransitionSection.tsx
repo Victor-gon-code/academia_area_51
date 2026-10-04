@@ -22,7 +22,7 @@ export default function TransitionSection() {
 
       ctx = gsap.context(() => {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const mobile = window.matchMedia("(max-width: 760px)").matches;
+        const mobile = window.matchMedia("(max-width: 900px)").matches;
         if (reduced || mobile) return;
 
         gsap.set(interiorRef.current, { clipPath: "inset(12% 43% 12% 43%)", scale: 1.08 });
