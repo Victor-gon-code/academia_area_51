@@ -31,7 +31,7 @@ export default function Intro() {
     <div className={`${styles.intro} ${leaving ? styles.leaving : ""}`} aria-hidden="true">
       <div className={styles.halo} />
       <div className={styles.wordmark}>
-        <Image className={styles.logo} src="/assets/area51/logo.webp" alt="" width={86} height={86} priority />
+        <Image className={styles.logo} src="/assets/area51/logo.avif" alt="" width={86} height={86} priority />
         <strong>ÁREA 51</strong>
         <span>Camocim de São Félix</span>
       </div>
