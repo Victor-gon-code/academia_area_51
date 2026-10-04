@@ -120,10 +120,19 @@
   color: var(--ink);
 }
 
+.secondary span {
+  transition: transform 220ms var(--ease-out);
+}
+
 .secondary:hover,
 .secondary:focus-visible {
   border-color: var(--green);
   color: var(--green-soft);
+}
+
+.secondary:hover span,
+.secondary:focus-visible span {
+  transform: translate(2px, -2px);
 }
 
 .visual {
