@@ -89,6 +89,7 @@ export default function MovementSection() {
                   src={moment.image}
                   alt={moment.alt}
                   fill
+                  quality={84}
                   sizes="(max-width: 900px) 100vw, 84vw"
                   style={{ objectPosition: moment.position }}
                 />
