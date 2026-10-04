@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  min-height: 226svh;
+  min-height: 292svh;
   background: #020302;
 }
 
@@ -9,47 +9,107 @@
   top: 0;
   display: grid;
   min-height: 100svh;
-  place-items: center;
   padding: calc(var(--header-h) + 1rem) var(--gutter) 2rem;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .sticky::before {
   position: absolute;
-  width: min(78vw, 74rem);
+  z-index: -1;
+  top: 50%;
+  left: 38%;
+  width: min(80vw, 78rem);
   aspect-ratio: 1;
-  border: 1px solid rgba(115, 255, 47, 0.14);
+  border: 1px solid rgba(115, 255, 47, 0.11);
   border-radius: 50%;
   content: "";
   pointer-events: none;
-  transform: rotate(-12deg) scaleY(0.34);
+  transform: translate(-50%, -50%) rotate(-12deg) scaleY(0.31);
 }
 
 .sticky::after {
   position: absolute;
-  width: min(56vw, 52rem);
+  z-index: -1;
+  top: 48%;
+  left: 36%;
+  width: min(56vw, 54rem);
   aspect-ratio: 1;
-  border: 1px solid rgba(244, 247, 242, 0.055);
+  border: 1px solid rgba(244, 247, 242, 0.05);
   border-radius: 50%;
   content: "";
   pointer-events: none;
-  transform: rotate(16deg) scaleY(0.29);
+  transform: translate(-50%, -50%) rotate(16deg) scaleY(0.26);
+}
+
+.visualField {
+  position: absolute;
+  z-index: -2;
+  top: var(--header-h);
+  right: -4vw;
+  bottom: 0;
+  width: min(52vw, 58rem);
+  overflow: hidden;
+  opacity: 0.48;
+}
+
+.visualField::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #020302 0%, rgba(2, 3, 2, 0.74) 18%, rgba(2, 3, 2, 0.16) 58%, rgba(2, 3, 2, 0.28) 100%),
+    linear-gradient(180deg, #020302 0%, rgba(2, 3, 2, 0.04) 20%, rgba(2, 3, 2, 0.08) 68%, #020302 100%);
+  content: "";
+}
+
+.visualField img {
+  object-fit: cover;
+  object-position: 50% 22%;
+  filter: brightness(0.58) saturate(0.75) contrast(1.06);
+  transform: scale(1.05);
+}
+
+.visualField > span {
+  position: absolute;
+  z-index: 3;
+  inset: 15% 10% 11% 18%;
+  border-left: 1px solid rgba(115, 255, 47, 0.24);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.sideNote {
+  position: absolute;
+  z-index: 3;
+  top: calc(var(--header-h) + 1.25rem);
+  right: var(--gutter);
+  display: flex;
+  gap: 1rem;
+  color: rgba(244,247,242,0.45);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .moment,
 .schedule {
   position: absolute;
   z-index: 2;
+  top: 50%;
+  left: var(--gutter);
   display: flex;
+  width: min(68vw, 78rem);
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  translate: 0 -50%;
   will-change: transform, opacity;
 }
 
 .moment strong {
   color: var(--ink);
-  font-size: clamp(8rem, 24vw, 24rem);
+  font-size: clamp(8rem, 20vw, 21rem);
   font-weight: 700;
   letter-spacing: -0.06em;
   line-height: 0.72;
@@ -58,9 +118,11 @@
 .moment p {
   margin-top: clamp(1.4rem, 3vw, 2.4rem);
   color: var(--green-soft);
-  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.55vw, 1.35rem);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
+  line-height: 1.5;
 }
 
 .night {
@@ -77,6 +139,7 @@
 
 .schedule {
   gap: 0.4rem;
+  width: min(76vw, 78rem);
 }
 
 .schedule > span { margin-bottom: 1.5rem; }
@@ -107,9 +170,26 @@
 }
 
 @media (max-width: 760px) {
-  .section { min-height: 190svh; }
+  .section { min-height: 232svh; }
+  .visualField {
+    top: var(--header-h);
+    right: -28vw;
+    width: 104vw;
+    opacity: 0.3;
+  }
+  .visualField::before {
+    background:
+      linear-gradient(180deg, rgba(2,3,2,0.28) 0%, rgba(2,3,2,0.7) 62%, #020302 100%),
+      linear-gradient(90deg, #020302 0%, rgba(2,3,2,0.34) 52%, rgba(2,3,2,0.18) 100%);
+  }
+  .sideNote { display: none; }
+  .moment,
+  .schedule {
+    right: var(--gutter);
+    width: auto;
+  }
   .moment strong { font-size: clamp(7rem, 34vw, 11rem); }
-  .schedule { width: calc(100% - (2 * var(--gutter))); align-items: flex-start; text-align: left; }
+  .schedule { align-items: flex-start; text-align: left; }
   .schedule p { max-width: 9ch; font-size: clamp(3.2rem, 16vw, 5.5rem); }
 }
 
