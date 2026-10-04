@@ -82,7 +82,7 @@ export default function HeroSection() {
         <div ref={frameRef} className={styles.visual}>
           <div className={styles.imageFrame}>
             <Image
-              src="/assets/area51/facade.avif"
+              src="/assets/area51/facade.png"
               alt="Fachada real da Academia Área 51 iluminada à noite"
               fill
               priority
