@@ -13,6 +13,7 @@ const nav = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -20,9 +21,12 @@ export default function Header() {
     const previous = document.body.style.overflow;
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const menu = menuRef.current;
-    const focusable = menu
+    const menuLinks = menu
       ? Array.from(menu.querySelectorAll<HTMLElement>('a[href]:not([tabindex="-1"])'))
       : [];
+    const focusable = menuButtonRef.current
+      ? [menuButtonRef.current, ...menuLinks]
+      : menuLinks;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -91,6 +95,7 @@ export default function Header() {
         </nav>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className={styles.menuButton}
           aria-expanded={open}
