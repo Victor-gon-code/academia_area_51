@@ -19,7 +19,7 @@ const body = Inter({
 export const metadata: Metadata = {
   title: "Academia Área 51 | Camocim de São Félix",
   description:
-    "Academia Área 51 em Camocim de São Félix. Estrutura, rotina e identidade para quem leva o treino a sério.",
+    "Academia Área 51 em Camocim de São Félix. Segunda a sexta, das 4h às 23h. Conheça a estrutura real, os planos e fale direto pelo WhatsApp.",
   applicationName: "Academia Área 51",
   authors: [{ name: "Academia Área 51" }],
   robots: { index: true, follow: true },
