@@ -11,7 +11,10 @@ export default function StructureSection() {
 
   useEffect(() => {
     let ctx: { revert: () => void } | undefined;
-    let media: { revert: () => void } | undefined;
+    let media: {
+    add: (query: string, callback: () => void | (() => void)) => unknown;
+    revert: () => void;
+  } | undefined;
     let cancelled = false;
 
     (async () => {
