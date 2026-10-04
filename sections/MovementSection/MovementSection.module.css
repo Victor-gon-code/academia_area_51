@@ -75,7 +75,7 @@
 
 .panel:nth-child(2) h2 { color: var(--green-soft); }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .section { min-height: 0; }
   .sticky { position: relative; min-height: 0; overflow: visible; }
   .kicker {
