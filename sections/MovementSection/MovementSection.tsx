@@ -19,8 +19,8 @@ const moments = [
   },
   {
     word: "VOLTAR",
-    image: "/assets/area51/weights.avif",
-    alt: "Área real de pesos e equipamentos da Academia Área 51",
+    image: "/assets/area51/weights-detail.avif",
+    alt: "Outro recorte real da área de pesos e equipamentos da Academia Área 51",
     position: "48% 47%"
   }
 ] as const;
