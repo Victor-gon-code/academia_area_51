@@ -180,3 +180,35 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Global small-screen polish */
+@media (max-width: 900px) {
+  :root {
+    --header-base-h: 64px;
+    --gutter: max(clamp(1.05rem, 4.6vw, 1.45rem), env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+
+  .sectionLabel {
+    gap: 0.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    line-height: 1.35;
+  }
+
+  .sectionLabel::before {
+    width: 0.9rem;
+    height: 2px;
+    border: 0;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.85;
+    transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --gutter: max(1rem, env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+}
