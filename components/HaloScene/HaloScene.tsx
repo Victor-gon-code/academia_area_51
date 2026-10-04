@@ -13,6 +13,8 @@ export default function HaloScene() {
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const compact = window.matchMedia("(max-width: 760px)").matches;
+    if (reduced) return;
+
     let cancelled = false;
     let frame = 0;
     let cleanup = () => {};
@@ -78,7 +80,7 @@ export default function HaloScene() {
         const animate = () => {
           group.rotation.x += (pointerY - group.rotation.x) * 0.035;
           group.rotation.y += (pointerX - group.rotation.y) * 0.035;
-          if (!reduced) group.rotation.z += compact ? 0.00065 : 0.00105;
+          group.rotation.z += compact ? 0.00065 : 0.00105;
           renderer.render(scene, camera);
           frame = window.requestAnimationFrame(animate);
         };
