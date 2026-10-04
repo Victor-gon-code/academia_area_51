@@ -63,7 +63,7 @@ export default function PlansSection() {
   }, []);
 
   return (
-    <section id="planos" ref={sectionRef} className={styles.section} aria-labelledby="plans-title">
+    <section id="planos" ref={sectionRef} className={styles.section} aria-label="Planos da Academia Área 51">
       <div className={styles.sticky}>
         <header className={styles.header}>
           <span className="sectionLabel">Planos</span>
