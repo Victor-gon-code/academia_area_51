@@ -60,7 +60,7 @@ export default function HeroSection() {
     <section id="topo" ref={sectionRef} className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.sticky}>
         <div className={styles.ambient} aria-hidden="true">
-          <Image src="/assets/area51/facade.webp" alt="" fill priority sizes="100vw" />
+          <Image src="/assets/area51/facade.avif" alt="" fill priority sizes="100vw" />
         </div>
 
         <div className={styles.copy}>
@@ -84,7 +84,7 @@ export default function HeroSection() {
         <div ref={frameRef} className={styles.visual}>
           <div className={styles.imageFrame}>
             <Image
-              src="/assets/area51/facade.webp"
+              src="/assets/area51/facade.avif"
               alt="Fachada real da Academia Área 51 iluminada à noite"
               fill
               priority
