@@ -25,7 +25,7 @@ export default function PlansSection() {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         media = gsap.matchMedia();
 
-        media.add("(min-width: 761px)", () => {
+        media.add("(min-width: 901px)", () => {
           if (reduced) return;
           const plans = gsap.utils.toArray<HTMLElement>("[data-plan]");
           const nav = gsap.utils.toArray<HTMLElement>("[data-plan-nav]");
