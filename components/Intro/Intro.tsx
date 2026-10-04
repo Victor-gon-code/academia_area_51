@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Intro.module.css";
 
@@ -34,11 +33,11 @@ export default function Intro() {
 
   return (
     <div className={`${styles.intro} ${leaving ? styles.leaving : ""}`} aria-hidden="true">
-      <div className={styles.halo} />
+      <div className={styles.light} />
       <div className={styles.wordmark}>
-        <Image className={styles.logo} src="/assets/area51/logo.jpg" alt="" width={86} height={86} priority />
+        <span className={styles.signal}><i /></span>
         <strong>ÁREA 51</strong>
-        <span>Camocim de São Félix</span>
+        <span className={styles.city}>Camocim de São Félix</span>
       </div>
     </div>
   );
