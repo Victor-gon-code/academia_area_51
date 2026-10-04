@@ -24,10 +24,12 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p public/assets/area51
+          cat asset-payload/assets.zip.b64.* | base64 --decode > /tmp/area51-assets.zip
+          unzip -o /tmp/area51-assets.zip -d public/assets/area51
 
-          for name in bathroom climb entrance facade functional interior-main logo shop weights; do
-            cat asset-payload/"$name"/*.part | base64 --decode > public/assets/area51/"$name".avif
-            test -s public/assets/area51/"$name".avif
+          required=(bathroom climb entrance facade functional interior-main logo shop weights)
+          for name in "${required[@]}"; do
+            test -s "public/assets/area51/${name}.avif"
           done
 
           file public/assets/area51/*.avif
