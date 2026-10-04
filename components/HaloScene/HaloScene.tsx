@@ -181,10 +181,11 @@ export default function HaloScene() {
       }
     }
 
-    mount();
+    const mountTimer = window.setTimeout(mount, 650);
 
     return () => {
       cancelled = true;
+      window.clearTimeout(mountTimer);
       cleanup();
     };
   }, [mode]);
