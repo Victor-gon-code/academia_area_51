@@ -317,3 +317,85 @@
     gap: 0.3rem;
   }
 }
+
+
+/* Mobile experience refinement */
+@media (max-width: 900px) {
+  .section {
+    min-height: 0;
+    padding:
+      calc(var(--header-h) + 2.2rem)
+      var(--gutter)
+      4rem;
+  }
+
+  .layout {
+    gap: 2.2rem;
+  }
+
+  .headline h2 {
+    max-width: 10ch;
+    margin-top: 1.5rem;
+    font-size: clamp(3rem, 11.5vw, 4.55rem);
+    line-height: 0.88;
+  }
+
+  .headline > p {
+    max-width: 35ch;
+    margin-top: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .panel {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .info > div {
+    min-height: 4.35rem;
+  }
+
+  .info span {
+    font-size: 0.58rem;
+  }
+
+  .info strong {
+    font-size: clamp(1.15rem, 5.6vw, 1.65rem);
+  }
+
+  .whatsapp {
+    min-height: 5.3rem;
+    margin-top: 1rem;
+    border-radius: 0.85rem;
+  }
+
+  .whatsapp > span {
+    font-size: clamp(1.55rem, 6.8vw, 2.45rem);
+  }
+
+  .localMark {
+    margin-top: 2rem;
+  }
+
+  .localMark span {
+    font-size: 24vw;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 420px) {
+  .headline h2 {
+    font-size: clamp(2.7rem, 11.2vw, 3.65rem);
+  }
+
+  .panelTop {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .phone {
+    flex-direction: row;
+    align-items: center;
+  }
+}
