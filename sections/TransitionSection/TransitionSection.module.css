@@ -64,7 +64,7 @@
   .facade { opacity: 0.22; transform: scale(1.05); }
   .interior { top: 16svh; right: var(--gutter); bottom: 18svh; left: var(--gutter); clip-path: inset(0); }
   .interior img { object-position: 50% 44%; }
-  .copy { bottom: 2rem; font-size: clamp(3.4rem, 15vw, 5.7rem); opacity: 1; transform: none; }
+  .copy { bottom: max(2rem, calc(env(safe-area-inset-bottom) + 0.5rem)); font-size: clamp(3.4rem, 15vw, 5.7rem); opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
