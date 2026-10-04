@@ -16,13 +16,24 @@
 
 .sticky::before {
   position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
-  background-size: clamp(3rem, 8vw, 7rem) clamp(3rem, 8vw, 7rem);
+  width: min(78vw, 74rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(115, 255, 47, 0.14);
+  border-radius: 50%;
   content: "";
-  mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
+  pointer-events: none;
+  transform: rotate(-12deg) scaleY(0.34);
+}
+
+.sticky::after {
+  position: absolute;
+  width: min(56vw, 52rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(244, 247, 242, 0.055);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+  transform: rotate(16deg) scaleY(0.29);
 }
 
 .moment,
