@@ -93,7 +93,7 @@
   position: absolute;
   z-index: 1;
   right: var(--gutter);
-  bottom: 2rem;
+  bottom: max(2rem, env(safe-area-inset-bottom));
   left: var(--gutter);
   height: 1px;
   background: rgba(255,255,255,0.12);
