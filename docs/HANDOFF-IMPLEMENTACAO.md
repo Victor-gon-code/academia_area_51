@@ -1,5 +1,30 @@
 # HANDOFF — Implementação Academia Área 51
 
+## Ajuste visual — transição e rotina
+
+Nova rodada aplicada depois da inspeção visual no localhost:
+
+- Transição fachada → interior refeita para mostrar **uma imagem por vez**.
+- A fachada agora aparece sozinha e permanece tempo suficiente para leitura.
+- O interior fica totalmente oculto no primeiro estado e só entra depois do scroll seguinte.
+- As duas fotos deixaram de ocupar a tela inteira esticadas; agora usam frames editoriais proporcionais aos arquivos verticais, preservando nitidez e evitando aparência borrada.
+- O segundo estado da transição também ganhou respiro antes da próxima seção.
+- Seção Rotina refeita:
+  - imagem do banheiro removida;
+  - mosaico/colagem removido;
+  - apenas uma foto real principal;
+  - texto reescrito em linguagem mais humana;
+  - bloco preto gigante sobre a imagem removido;
+  - composição editorial mais limpa.
+- Qualidade de entrega das imagens ajustada via `next/image`, mantendo AVIF/WebP automáticos e `sizes` responsivos para não aumentar o peso desnecessariamente.
+- Hero/fachada: quality 90.
+- Transição principal: 90/88.
+- Estrutura: 86 (detalhes 82).
+- Movimento/loja: 84.
+- Rotina/encerramento: 88.
+- Nenhuma imagem sintética foi adicionada e os arquivos reais continuam sendo a fonte visual.
+
+
 ## Rodada de ajustes visuais — Hero, Intro e Horários
 
 Ajustes feitos após inspeção visual no localhost:
