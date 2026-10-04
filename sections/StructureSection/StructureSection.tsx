@@ -99,7 +99,7 @@ export default function StructureSection() {
               <div className={styles.copy}>
                 <span>{chapter.label}</span>
                 {index === 0 ? (
-                  <h2 id="structure-title" data-display>{chapter.title}</h2>
+                  <h2 data-display>{chapter.title}</h2>
                 ) : (
                   <h3 data-display>{chapter.title}</h3>
                 )}
