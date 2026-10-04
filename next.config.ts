@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
     // WebP keeps the visual quality high while avoiding AVIF's heavier
     // first-request encoding cost on a small VPS.
     formats: ["image/webp"],
-    deviceSizes: [360, 420, 640, 750, 828, 1080, 1200, 1440, 1600, 1920, 2048, 2560, 3840],
+    deviceSizes: [360, 420, 640, 750, 828, 1080, 1200, 1440, 1600, 1920, 2048, 2560, 2880, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 31536000
   },
