@@ -11,15 +11,20 @@ export default function Intro() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const seen = sessionStorage.getItem("area51-intro-seen") === "1";
-    const hold = reduced ? 80 : seen ? 240 : 860;
+    const hold = reduced ? 80 : seen ? 180 : 820;
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
 
     const leaveTimer = window.setTimeout(() => setLeaving(true), hold);
     const removeTimer = window.setTimeout(() => {
+      document.body.style.overflow = previousOverflow;
       setVisible(false);
       sessionStorage.setItem("area51-intro-seen", "1");
-    }, hold + (reduced ? 20 : 360));
+    }, hold + (reduced ? 20 : 340));
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       window.clearTimeout(leaveTimer);
       window.clearTimeout(removeTimer);
     };
