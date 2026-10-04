@@ -65,6 +65,8 @@
 
 .secondLine {
   color: var(--green-soft);
+  opacity: 0;
+  transform: translateY(46px);
   will-change: transform, opacity;
 }
 
@@ -74,6 +76,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1.35rem;
+  opacity: 0;
+  transform: translateY(24px);
   will-change: transform, opacity;
 }
 
@@ -274,4 +278,12 @@
   .title { font-size: clamp(3rem, 14.5vw, 4.4rem); }
   .visual { height: 56svh; }
   .meta p { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secondLine,
+  .meta {
+    opacity: 1;
+    transform: none;
+  }
 }
