@@ -76,7 +76,7 @@ export default function StructureSection() {
   }, []);
 
   return (
-    <section id="estrutura" ref={sectionRef} className={styles.section} aria-labelledby="structure-title">
+    <section id="estrutura" ref={sectionRef} className={styles.section} aria-label="Estrutura da Academia Área 51">
       <div ref={desktopStageRef} className={styles.desktopStage}>
         <div className={styles.introLine}>
           <span className="sectionLabel">Estrutura real</span>
