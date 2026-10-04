@@ -18,41 +18,41 @@ Não há Lenis nem biblioteca de UI.
 
 ## Assets reais
 
-Antes de rodar o projeto, coloque os arquivos otimizados em:
+Antes de rodar o projeto, coloque os arquivos reais em:
 
 `public/assets/area51/`
 
 Nomes esperados pelo código:
 
 ```text
-bathroom.avif
-climb.avif
-entrance.avif
-facade.avif
-functional.avif
-interior-main.avif
-interior-alt.avif
-logo.avif
-shop.avif
-weights.avif
-weights-detail.avif
+bathroom.png
+climb.png
+entrance.png
+facade.png
+functional.png
+interior-main.png
+interior-alt.png
+logo.jpg
+shop.png
+weights.jpg
+weights-detail.png
 ```
 
-O pacote preparado durante a implementação contém exatamente essa estrutura. Não renomeie os arquivos sem atualizar as referências no código.
+O mapeamento exato dos arquivos recebidos está em `docs/ASSET-INSTALL-MANUAL.md`. O `next/image` otimiza a entrega automaticamente; não é necessário converter manualmente para AVIF.
 
 Mapeamento:
 
-- `facade.avif` — fachada / Hero / encerramento
-- `interior-main.avif` — entrada visual e visão geral interna
-- `interior-alt.avif` — segundo ângulo real da musculação / força
-- `weights.avif` — musculação / força
-- `weights-detail.avif` — segundo recorte real da área de pesos
-- `functional.avif` — funcional / movimento
-- `climb.avif` — escalada / verticalidade
-- `entrance.avif` — recepção / rotina
-- `bathroom.avif` — detalhe de ambiente
-- `shop.avif` — loja integrada
-- `logo.avif` — identidade original
+- `facade.png` — fachada / Hero / encerramento
+- `interior-main.png` — entrada visual e visão geral interna
+- `interior-alt.png` — segundo ângulo real da musculação / força
+- `weights.jpg` — musculação / força
+- `weights-detail.png` — segundo recorte real da área de pesos
+- `functional.png` — funcional / movimento
+- `climb.png` — escalada / verticalidade
+- `entrance.png` — recepção / rotina
+- `bathroom.png` — detalhe de ambiente
+- `shop.png` — loja integrada
+- `logo.jpg` — identidade original
 
 ## Desenvolvimento
 
@@ -66,6 +66,7 @@ npm run dev
 Validação obrigatória antes de publicar:
 
 ```bash
+npm run check:assets
 npm run typecheck
 npm run lint
 npm run build
