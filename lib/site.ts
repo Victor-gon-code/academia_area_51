@@ -21,33 +21,25 @@ export const STRUCTURE_CHAPTERS = [
   {
     id: "visao-geral",
     label: "Visão geral",
-    title: "Você entra e entende rápido: aqui tem cara própria.",
+    title: "Você entra e já entende o espaço.",
     image: "/assets/area51/interior-main.png",
     alt: "Interior real da Academia Área 51 com equipamentos e iluminação geométrica no teto",
-    position: "50% 48%"
-  },
-  {
-    id: "forca",
-    label: "Musculação / força",
-    title: "Peso, máquina, espaço. O resto é você que faz.",
-    image: "/assets/area51/weights.jpg",
-    alt: "Área real de musculação e pesos livres da Academia Área 51",
     position: "50% 52%"
   },
   {
-    id: "movimento",
-    label: "Funcional / movimento",
-    title: "Muda o movimento. Muda o desafio.",
-    image: "/assets/area51/functional.png",
-    alt: "Área funcional real com argolas, barras, cordas e estrutura da Academia Área 51",
-    position: "50% 50%"
+    id: "forca",
+    label: "Musculação",
+    title: "Máquinas, pesos e espaço para o treino render.",
+    image: "/assets/area51/weights.jpg",
+    alt: "Área real de musculação e pesos livres da Academia Área 51",
+    position: "50% 58%"
   },
   {
-    id: "verticalidade",
-    label: "Escalada / verticalidade",
-    title: "E tem hora que o treino sai do chão.",
-    image: "/assets/area51/climb.png",
-    alt: "Parede de escalada real da Academia Área 51",
-    position: "50% 50%"
+    id: "movimento",
+    label: "Funcional",
+    title: "Quando o treino pede movimento, o espaço acompanha.",
+    image: "/assets/area51/functional.png",
+    alt: "Área funcional real da Academia Área 51 com estrutura para exercícios de movimento",
+    position: "50% 66%"
   }
 ] as const;
