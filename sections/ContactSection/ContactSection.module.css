@@ -1,0 +1,116 @@
+.section {
+  display: grid;
+  min-height: 104svh;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+  grid-template-rows: auto auto;
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: end;
+  padding: clamp(6rem, 10vw, 10rem) var(--gutter) 3.5rem;
+  background: #060906;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.headline h2 {
+  max-width: 11ch;
+  font-size: clamp(4.8rem, 9vw, 10rem);
+  font-weight: 700;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+
+.info > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.info span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.info strong {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 600;
+}
+
+.whatsapp {
+  display: flex;
+  min-height: clamp(5.4rem, 8vw, 8rem);
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 clamp(1rem, 2vw, 2rem);
+  border-top: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
+  color: var(--green-soft);
+  transition: background 240ms ease, color 240ms ease;
+}
+
+.whatsapp span {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(2.4rem, 5vw, 5.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.whatsapp strong {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 400;
+}
+
+.whatsapp:hover,
+.whatsapp:focus-visible {
+  background: var(--green);
+  color: #061006;
+}
+
+.phone {
+  grid-column: 1 / -1;
+  justify-self: end;
+  margin-top: -1.4rem;
+  color: rgba(244,247,242,0.46);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 760px) {
+  .section {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.8rem;
+    padding: 6rem var(--gutter) max(3rem, env(safe-area-inset-bottom));
+  }
+  .headline h2 { font-size: clamp(4rem, 17vw, 6rem); }
+  .info { width: 100%; }
+  .info > div { align-items: flex-start; }
+  .whatsapp {
+    min-height: 5.2rem;
+    padding: 0 0.9rem;
+  }
+  .whatsapp span { font-size: clamp(2rem, 10vw, 3.3rem); }
+  .phone { align-self: flex-end; margin-top: -1.8rem; }
+}
