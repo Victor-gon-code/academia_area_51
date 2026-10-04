@@ -43,11 +43,21 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    // WebP keeps the visual quality high while avoiding AVIF's heavier
+    // first-request encoding cost on a small VPS.
+    formats: ["image/webp"],
+    deviceSizes: [360, 420, 640, 750, 828, 1080, 1200, 1440, 1600, 1920, 2048, 2560, 3840],
+    imageSizes: [32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000
   },
   async headers() {
     return [
+      {
+        source: "/assets/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" }
+        ]
+      },
       {
         source: "/:path*",
         headers: securityHeaders
