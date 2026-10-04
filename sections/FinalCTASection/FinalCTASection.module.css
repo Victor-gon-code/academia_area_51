@@ -112,6 +112,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .section {
+    min-height: 100svh;
+  }
+
+  .content {
+    position: relative;
+  }
+
   .content h2 span:last-child,
   .content a {
     opacity: 1;
