@@ -4,7 +4,6 @@ import HeroSection from "@/sections/HeroSection/HeroSection";
 import HoursSection from "@/sections/HoursSection/HoursSection";
 import TransitionSection from "@/sections/TransitionSection/TransitionSection";
 import StructureSection from "@/sections/StructureSection/StructureSection";
-import MovementSection from "@/sections/MovementSection/MovementSection";
 import RoutineSection from "@/sections/RoutineSection/RoutineSection";
 import PlansSection from "@/sections/PlansSection/PlansSection";
 import SupplementsSection from "@/sections/SupplementsSection/SupplementsSection";
@@ -21,7 +20,6 @@ export default function Home() {
         <HoursSection />
         <TransitionSection />
         <StructureSection />
-        <MovementSection />
         <RoutineSection />
         <PlansSection />
         <SupplementsSection />
