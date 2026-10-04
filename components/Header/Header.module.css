@@ -26,19 +26,22 @@
 
 .brandMark {
   position: relative;
-  width: 0.62rem;
-  height: 0.62rem;
-  border: 1px solid var(--green);
-  border-radius: 50%;
+  width: 1.35rem;
+  height: 1px;
+  background: var(--green);
 }
 
 .brandMark::after {
   position: absolute;
-  inset: -0.38rem;
-  border: 1px solid rgba(115, 255, 47, 0.24);
+  top: 50%;
+  right: -0.08rem;
+  width: 0.26rem;
+  height: 0.26rem;
   border-radius: 50%;
+  background: var(--green-soft);
+  box-shadow: 0 0 12px rgba(115, 255, 47, 0.34);
   content: "";
-  transform: rotate(-18deg) scaleY(0.38);
+  transform: translate(100%, -50%);
 }
 
 .desktopNav {
