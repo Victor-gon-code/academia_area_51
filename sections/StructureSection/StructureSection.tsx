@@ -80,7 +80,7 @@ export default function StructureSection() {
       <div ref={desktopStageRef} className={styles.desktopStage}>
         <div className={styles.introLine}>
           <span className="sectionLabel">Estrutura real</span>
-          <p>Quatro momentos. Um mesmo espaço.</p>
+          <p>Sem cenário montado. É a academia como ela é.</p>
         </div>
 
         <div className={styles.slides}>
@@ -120,7 +120,7 @@ export default function StructureSection() {
       <div className={styles.mobileChapters}>
         <header className={styles.mobileIntro}>
           <span className="sectionLabel">Estrutura real</span>
-          <h2 data-display>Quatro momentos. Um mesmo espaço.</h2>
+          <h2 data-display>Você vai reconhecendo o lugar enquanto entra.</h2>
         </header>
         {STRUCTURE_CHAPTERS.map((chapter, index) => (
           <article key={chapter.id} className={styles.mobileChapter}>
