@@ -65,7 +65,7 @@ export default function HoursSection() {
         </div>
 
         <div ref={scheduleRef} className={styles.schedule}>
-          <span className="sectionLabel">Uma rotina que acompanha a sua</span>
+          <span className="sectionLabel">Tem treino antes do resto do dia começar</span>
           <p data-display>Seg a Sex 4h–23h</p>
           <p data-display>Sáb e Dom 8h–13h</p>
         </div>
