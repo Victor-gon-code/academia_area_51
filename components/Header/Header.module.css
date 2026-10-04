@@ -185,10 +185,15 @@
   text-transform: uppercase;
 }
 
-.mobileMenu p {
+.mobileMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.2rem;
   color: var(--muted);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 
