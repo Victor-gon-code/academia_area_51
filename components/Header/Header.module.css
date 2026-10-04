@@ -10,7 +10,7 @@
   justify-content: space-between;
   padding: 0 var(--gutter);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(5, 7, 6, 0.96);
+  background: rgba(5, 7, 6, 0.9);
 }
 
 .brand {
@@ -151,7 +151,22 @@
   transition: opacity 240ms ease, transform 240ms var(--ease-out), visibility 240ms;
 }
 
+.mobileMenu::before {
+  position: absolute;
+  top: 18%;
+  right: -32vw;
+  width: min(78vw, 34rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(115, 255, 47, 0.22);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+  transform: rotate(-10deg) scaleY(0.36);
+}
+
 .mobileMenu nav {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -186,6 +201,8 @@
 }
 
 .mobileMeta {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem 1.2rem;
