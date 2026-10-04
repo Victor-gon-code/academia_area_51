@@ -87,7 +87,7 @@ export default function PlansSection() {
         </div>
 
         <a className={styles.cta} href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer">
-          Quero escolher meu plano <span aria-hidden="true">↗</span>
+          Quero falar sobre os planos <span aria-hidden="true">↗</span>
         </a>
       </div>
 
