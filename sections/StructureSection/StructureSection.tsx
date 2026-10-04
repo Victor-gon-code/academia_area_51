@@ -86,14 +86,16 @@ export default function StructureSection() {
         <div className={styles.slides}>
           {STRUCTURE_CHAPTERS.map((chapter, index) => (
             <article key={chapter.id} data-structure-slide className={styles.slide}>
-              <Image
-                src={chapter.image}
-                alt={chapter.alt}
-                fill
-                sizes="100vw"
-                style={{ objectPosition: chapter.position }}
-              />
-              <div className={styles.overlay} aria-hidden="true" />
+              <div className={styles.media}>
+                <Image
+                  src={chapter.image}
+                  alt={chapter.alt}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 42vw"
+                  style={{ objectPosition: chapter.position }}
+                />
+                <div className={styles.overlay} aria-hidden="true" />
+              </div>
               <div className={styles.copy}>
                 <span>{chapter.label}</span>
                 {index === 0 ? (
