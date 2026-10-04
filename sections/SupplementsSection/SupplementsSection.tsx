@@ -14,8 +14,8 @@ export default function SupplementsSection() {
       </div>
       <div className={styles.copy}>
         <span className="sectionLabel">No caminho de saída</span>
-        <h2 id="supplements-title" data-display>O treino acaba. O cuidado com ele, não.</h2>
-        <p>A loja faz parte da própria academia, com suplementos e itens fitness para quem prefere resolver tudo no mesmo lugar.</p>
+        <h2 id="supplements-title" data-display>Terminou o treino. O resto está logo ali.</h2>
+        <p>A loja fica dentro da própria academia. Dá para sair do treino e resolver ali mesmo o que você já usa na rotina, sem transformar isso em outra parada no caminho.</p>
       </div>
     </section>
   );
