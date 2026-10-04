@@ -43,7 +43,12 @@
   font-weight: 750;
 }
 
-.content h2 span:last-child { color: var(--green-soft); }
+.content h2 span:last-child {
+  color: var(--green-soft);
+  opacity: 0;
+  transform: translateY(42px);
+}
+
 
 .content a {
   display: inline-flex;
@@ -59,6 +64,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(24px);
 }
 
 .content a:hover,
@@ -101,5 +108,13 @@
   .footer {
     align-items: flex-start;
     justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content h2 span:last-child,
+  .content a {
+    opacity: 1;
+    transform: none;
   }
 }
