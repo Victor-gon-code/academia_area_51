@@ -67,6 +67,7 @@ Validação obrigatória antes de publicar:
 
 ```bash
 npm run check:assets
+npm run qa:contract
 npm run typecheck
 npm run lint
 npm run build
@@ -108,4 +109,4 @@ Revisar pelo menos:
 
 Também conferir navegação por teclado, reduced motion, resize, wheel, trackpad, PageDown e touch.
 
-A direção e as decisões completas estão em `docs/IMPLEMENTATION_CONTRACT.md` e `docs/HANDOFF-IMPLEMENTACAO.md`.
+A direção e as decisões completas estão em `docs/IMPLEMENTATION_CONTRACT.md` e `docs/HANDOFF-IMPLEMENTACAO.md`. O resultado da revisão final está em `docs/FINAL-QA.md`.
