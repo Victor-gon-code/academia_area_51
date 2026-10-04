@@ -55,7 +55,7 @@ export default function FinalCTASection() {
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="final-title">
       <div ref={imageRef} className={styles.image}>
-        <Image src="/assets/area51/facade.avif" alt="Fachada iluminada da Academia Área 51" fill sizes="100vw" />
+        <Image src="/assets/area51/facade.png" alt="Fachada iluminada da Academia Área 51" fill sizes="100vw" />
       </div>
       <div className={styles.shade} aria-hidden="true" />
       <div className={styles.content}>
