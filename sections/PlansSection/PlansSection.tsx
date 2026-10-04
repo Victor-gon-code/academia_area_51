@@ -67,7 +67,7 @@ export default function PlansSection() {
       <div className={styles.sticky}>
         <header className={styles.header}>
           <span className="sectionLabel">Planos</span>
-          <h2 id="plans-title" data-display>Escolha seu ritmo.</h2>
+          <h2 id="plans-title" data-display>Escolha como quer começar.</h2>
         </header>
 
         <div className={styles.planStage}>
@@ -87,7 +87,7 @@ export default function PlansSection() {
         </div>
 
         <a className={styles.cta} href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer">
-          Quero falar sobre meu plano <span aria-hidden="true">↗</span>
+          Quero escolher meu plano <span aria-hidden="true">↗</span>
         </a>
       </div>
 
