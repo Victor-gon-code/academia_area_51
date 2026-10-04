@@ -78,12 +78,18 @@
 .whatsapp strong {
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 400;
+  transition: transform 240ms var(--ease-out);
 }
 
 .whatsapp:hover,
 .whatsapp:focus-visible {
   background: var(--green);
   color: #061006;
+}
+
+.whatsapp:hover strong,
+.whatsapp:focus-visible strong {
+  transform: translate(4px, -4px);
 }
 
 .phone {
