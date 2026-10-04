@@ -8,7 +8,8 @@
   --green: #73ff2f;
   --green-soft: #9bff6f;
   --line: rgba(255, 255, 255, 0.12);
-  --header-h: 70px;
+  --header-base-h: 70px;
+  --header-h: calc(var(--header-base-h) + env(safe-area-inset-top));
   --gutter: max(clamp(1.15rem, 3vw, 3.75rem), env(safe-area-inset-left), env(safe-area-inset-right));
   --radius-sm: 0.45rem;
   --radius-md: 1.15rem;
@@ -144,7 +145,7 @@ main {
 
 @media (max-width: 760px) {
   :root {
-    --header-h: 64px;
+    --header-base-h: 64px;
     --gutter: max(1.15rem, env(safe-area-inset-left), env(safe-area-inset-right));
   }
 
