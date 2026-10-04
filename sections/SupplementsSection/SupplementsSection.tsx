@@ -15,6 +15,7 @@ export default function SupplementsSection() {
           src="/assets/area51/shop.png"
           alt="Loja real integrada ao espaço da Academia Área 51"
           fill
+          quality={84}
           sizes="(max-width: 900px) 100vw, 46vw"
         />
       </div>
