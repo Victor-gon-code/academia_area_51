@@ -171,16 +171,25 @@
   transition: clip-path 560ms cubic-bezier(0.72, 0, 0.18, 1), visibility 560ms;
 }
 
-.mobileMenu::after {
+.menuBackground {
   position: absolute;
   z-index: 0;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(4, 7, 4, 0.48), rgba(4, 8, 4, 0.86) 54%, #041006 100%),
-    url("/assets/area51/interior-main.png") 52% 42% / cover no-repeat;
-  content: "";
+  object-fit: cover;
+  object-position: 52% 42%;
   opacity: 0.29;
   filter: saturate(0.72) contrast(1.08);
+  pointer-events: none;
+}
+
+.mobileMenu::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 4, 0.48), rgba(4, 8, 4, 0.86) 54%, #041006 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .mobileMenuOpen {
@@ -196,7 +205,7 @@
 
 .menuBackdrop {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
