@@ -7,7 +7,7 @@ export default function ContactSection() {
       <div className={styles.headline}>
         <span className="sectionLabel">Contato</span>
         <h2 id="contact-title" data-display>
-          Camocim de São Félix.<br />Perto da sua rotina.
+          Camocim de São Félix.<br />A Área 51 é daqui.
         </h2>
       </div>
 
