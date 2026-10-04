@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SITE } from "@/lib/site";
 import styles from "./Header.module.css";
 
@@ -12,21 +12,46 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
 
     const previous = document.body.style.overflow;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const menu = menuRef.current;
+    const focusable = menu
+      ? Array.from(menu.querySelectorAll<HTMLElement>('a[href]:not([tabindex="-1"])'))
+      : [];
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
+    window.requestAnimationFrame(() => focusable[0]?.focus());
 
     return () => {
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKeyDown);
+      previousFocus?.focus();
     };
   }, [open]);
 
@@ -81,7 +106,12 @@ export default function Header() {
         </button>
       </header>
 
-      <div id="menu-mobile" className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`} aria-hidden={!open}>
+      <div
+        ref={menuRef}
+        id="menu-mobile"
+        className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
+        aria-hidden={!open}
+      >
         <nav aria-label="Navegação mobile">
           {nav.map((item) => (
             <a
