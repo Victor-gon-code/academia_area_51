@@ -32,23 +32,42 @@ export default function TransitionSection() {
         media.add("(min-width: 901px)", () => {
           if (reduced) return;
 
-          gsap.set(interiorRef.current, { clipPath: "inset(12% 43% 12% 43%)", scale: 1.08 });
-          gsap.set(copyRef.current, { opacity: 0, y: 38 });
+          gsap.set(facadeRef.current, { autoAlpha: 1, scale: 1 });
+          gsap.set(interiorRef.current, {
+            autoAlpha: 0,
+            clipPath: "inset(8% 48% 8% 48%)",
+            scale: 1.035
+          });
+          gsap.set(copyRef.current, { opacity: 0, y: 34 });
 
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top top",
               end: "bottom bottom",
-              scrub: 0.78,
+              scrub: 0.72,
               invalidateOnRefresh: true
             }
           });
 
-          tl.to(facadeRef.current, { scale: 1.1, opacity: 0.25, duration: 1, ease: "none" }, 0)
-            .to(interiorRef.current, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.72, ease: "power2.inOut" }, 0.05)
-            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.54)
-            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.34, ease: "none" }, 1);
+          // Primeiro momento: a fachada permanece sozinha tempo suficiente para ser lida.
+          tl.to(facadeRef.current, { scale: 1, autoAlpha: 1, duration: 0.42, ease: "none" }, 0)
+            // Só depois do primeiro scroll o interior começa a entrar.
+            .to(facadeRef.current, { scale: 1.035, autoAlpha: 0.16, duration: 0.54, ease: "none" }, 0.42)
+            .to(
+              interiorRef.current,
+              {
+                autoAlpha: 1,
+                clipPath: "inset(0% 0% 0% 0%)",
+                scale: 1,
+                duration: 0.54,
+                ease: "power2.inOut"
+              },
+              0.46
+            )
+            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.88)
+            // Respiro final: texto e segunda imagem ficam parados antes da próxima seção.
+            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.42, ease: "none" }, ">");
         });
       }, sectionRef);
     })();
@@ -63,18 +82,35 @@ export default function TransitionSection() {
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="transition-title">
       <div className={styles.sticky}>
-        <div ref={facadeRef} className={styles.facade} aria-hidden="true">
-          <Image src="/assets/area51/facade.png" alt="" fill sizes="100vw" />
+        <div ref={facadeRef} className={styles.facade}>
+          <div className={styles.stageLabel} aria-hidden="true">
+            <span>Por fora</span>
+            <i />
+          </div>
+          <div className={styles.facadeFrame}>
+            <Image
+              src="/assets/area51/facade.png"
+              alt="Fachada real da Academia Área 51 com o letreiro da marca"
+              fill
+              quality={90}
+              sizes="(max-width: 900px) 100vw, 38vw"
+            />
+          </div>
         </div>
+
         <div ref={interiorRef} className={styles.interior}>
-          <Image
-            src="/assets/area51/interior-main.png"
-            alt="Interior real da Academia Área 51 visto a partir do corredor de equipamentos"
-            fill
-            sizes="100vw"
-          />
+          <div className={styles.interiorFrame}>
+            <Image
+              src="/assets/area51/interior-main.png"
+              alt="Interior real da Academia Área 51 visto a partir do corredor de equipamentos"
+              fill
+              quality={88}
+              sizes="(max-width: 900px) 100vw, 48vw"
+            />
+          </div>
           <div className={styles.shade} aria-hidden="true" />
         </div>
+
         <h2 ref={copyRef} id="transition-title" className={styles.copy} data-display>
           <span>Por fora, presença.</span>
           <span>Por dentro, outro ritmo.</span>
