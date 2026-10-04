@@ -11,17 +11,17 @@ export const SITE = {
 } as const;
 
 export const PLANS = [
-  { name: "Mensal", price: "R$ 80", copy: "Pra entrar, sentir o espaço e começar no seu tempo." },
-  { name: "Fidelidade", price: "R$ 70", copy: "Pra quem já decidiu que treino não vai ser só fase." },
-  { name: "Semestral", price: "R$ 390", copy: "Seis meses para deixar de depender da empolgação do primeiro dia." },
-  { name: "Anual", price: "R$ 720", copy: "Um ano inteiro com a decisão já tomada." }
+  { name: "Mensal", price: "R$ 80", copy: "Pra chegar, treinar e ver como o lugar encaixa no seu dia." },
+  { name: "Fidelidade", price: "R$ 70", copy: "Pra quem já sabe que quer continuar vindo." },
+  { name: "Semestral", price: "R$ 390", copy: "Seis meses para o treino deixar de depender da vontade do dia." },
+  { name: "Anual", price: "R$ 720", copy: "Um ano com a academia já fazendo parte da agenda." }
 ] as const;
 
 export const STRUCTURE_CHAPTERS = [
   {
     id: "visao-geral",
     label: "Visão geral",
-    title: "Não parece só mais uma academia. E não foi feita pra parecer.",
+    title: "Você entra e entende rápido: aqui tem cara própria.",
     image: "/assets/area51/interior-main.png",
     alt: "Interior real da Academia Área 51 com equipamentos e iluminação geométrica no teto",
     position: "50% 48%"
@@ -29,7 +29,7 @@ export const STRUCTURE_CHAPTERS = [
   {
     id: "forca",
     label: "Musculação / força",
-    title: "Peso no lugar. Espaço para trabalhar.",
+    title: "Peso, máquina, espaço. O resto é você que faz.",
     image: "/assets/area51/weights.jpg",
     alt: "Área real de musculação e pesos livres da Academia Área 51",
     position: "50% 52%"
@@ -37,7 +37,7 @@ export const STRUCTURE_CHAPTERS = [
   {
     id: "movimento",
     label: "Funcional / movimento",
-    title: "O treino muda de direção.",
+    title: "Muda o movimento. Muda o desafio.",
     image: "/assets/area51/functional.png",
     alt: "Área funcional real com argolas, barras, cordas e estrutura da Academia Área 51",
     position: "50% 50%"
@@ -45,7 +45,7 @@ export const STRUCTURE_CHAPTERS = [
   {
     id: "verticalidade",
     label: "Escalada / verticalidade",
-    title: "E, às vezes, vai pra cima.",
+    title: "E tem hora que o treino sai do chão.",
     image: "/assets/area51/climb.png",
     alt: "Parede de escalada real da Academia Área 51",
     position: "50% 50%"
