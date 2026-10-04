@@ -38,7 +38,7 @@
   line-height: 1.65;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .section {
     display: flex;
     min-height: 0;
