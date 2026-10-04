@@ -13,7 +13,7 @@ export default function HaloScene() {
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const compact = window.matchMedia("(max-width: 760px)").matches;
-    if (reduced) return;
+    if (reduced || compact) return;
 
     let cancelled = false;
     let frame = 0;
@@ -28,9 +28,9 @@ export default function HaloScene() {
         const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
         camera.position.z = 6;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: !compact, alpha: true, powerPreference: "high-performance" });
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
         renderer.setClearColor(0x000000, 0);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, compact ? 1.2 : 1.65));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.65));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         host.appendChild(renderer.domElement);
 
@@ -38,7 +38,7 @@ export default function HaloScene() {
         scene.add(group);
 
         const major = new THREE.Mesh(
-          new THREE.TorusGeometry(1.62, 0.055, compact ? 10 : 16, compact ? 72 : 128),
+          new THREE.TorusGeometry(1.62, 0.055, 16, 128),
           new THREE.MeshStandardMaterial({
             color: 0x111611,
             metalness: 0.92,
@@ -50,7 +50,7 @@ export default function HaloScene() {
         group.add(major);
 
         const minor = new THREE.Mesh(
-          new THREE.TorusGeometry(1.35, 0.018, 8, compact ? 64 : 112),
+          new THREE.TorusGeometry(1.35, 0.018, 8, 112),
           new THREE.MeshBasicMaterial({ color: 0x78ff3a, transparent: true, opacity: 0.58 })
         );
         minor.rotation.x = Math.PI * 0.08;
@@ -64,7 +64,7 @@ export default function HaloScene() {
         let pointerX = 0;
         let pointerY = 0;
         const onPointer = (event: PointerEvent) => {
-          if (compact || reduced) return;
+          if (reduced) return;
           pointerX = (event.clientX / window.innerWidth - 0.5) * 0.3;
           pointerY = (event.clientY / window.innerHeight - 0.5) * 0.22;
         };
@@ -80,7 +80,7 @@ export default function HaloScene() {
         const animate = () => {
           group.rotation.x += (pointerY - group.rotation.x) * 0.035;
           group.rotation.y += (pointerX - group.rotation.y) * 0.035;
-          group.rotation.z += compact ? 0.00065 : 0.00105;
+          group.rotation.z += 0.00105;
           renderer.render(scene, camera);
           frame = window.requestAnimationFrame(animate);
         };
