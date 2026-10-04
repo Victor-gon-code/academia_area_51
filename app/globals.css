@@ -130,8 +130,8 @@ main {
 .skipLink {
   position: fixed;
   z-index: 9999;
-  top: 0.75rem;
-  left: 0.75rem;
+  top: calc(env(safe-area-inset-top) + 0.75rem);
+  left: calc(env(safe-area-inset-left) + 0.75rem);
   transform: translateY(-160%);
   padding: 0.7rem 0.95rem;
   background: var(--ink);
