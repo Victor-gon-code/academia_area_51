@@ -23,7 +23,9 @@ const forbidden = [
   ["scroll-snap", "scroll-snap não é permitido"],
   ["lenis", "Lenis não pertence à primeira implementação"],
   ["dangerouslySetInnerHTML", "dangerouslySetInnerHTML não é necessário neste projeto"],
-  ["CNPJ", "CNPJ não deve ser publicado sem confirmação"]
+  ["CNPJ", "CNPJ não deve ser publicado sem confirmação"],
+  ["100vh", "Use svh/dvh ou soluções responsivas; 100vh rígido não é permitido"],
+  ["backdrop-filter", "Evitar glassmorphism/backdrop blur nesta direção visual"]
 ];
 
 const errors = [];
