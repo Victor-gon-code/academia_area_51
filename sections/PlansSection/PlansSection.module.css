@@ -48,7 +48,7 @@
   opacity: 1;
 }
 
-.plan > span {
+.plan > h3 {
   color: var(--green-soft);
   font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: 700;
@@ -148,7 +148,7 @@
     justify-content: center;
     border-top: 1px solid rgba(255,255,255,0.14);
   }
-  .mobilePlans article > span {
+  .mobilePlans article > h3 {
     color: var(--green-soft);
     font-size: 0.7rem;
     font-weight: 700;
@@ -212,7 +212,7 @@
     justify-content: center;
     border-top: 1px solid rgba(255,255,255,0.14);
   }
-  .mobilePlans article > span {
+  .mobilePlans article > h3 {
     color: var(--green-soft);
     font-size: 0.7rem;
     font-weight: 700;
