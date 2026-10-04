@@ -2,6 +2,32 @@
 
 > Documento de continuidade. Se a conversa cair, este arquivo é a fonte de estado operacional para retomar sem mudar a direção aprovada.
 
+## Checkpoint final de implementação — 04/10/2026
+
+Estado ao finalizar o código:
+- direção criativa aprovada preservada integralmente;
+- todas as seções implementadas;
+- copy final revisada para voz mais direta e humana;
+- Hero mobile corrigido após QA real de viewport;
+- mobile 320/360/375/390/412 verificado contra overflow e clipping;
+- desktop 1366/1440/1920 e ultrawide 2560 verificados;
+- tablet 768×1024 e 1024×768 verificados;
+- reduced motion verificado em desktop e mobile;
+- varredura de imagens sem assets quebrados no runtime de QA;
+- scroll arbitrário testado sem snap/puxada automática;
+- PageDown, ArrowDown e wheel preservam scroll nativo;
+- microinterações limitadas a detalhes de CTA/órbita, sem transformar a interface em template;
+- workflows temporários de export removidos;
+- relatório detalhado em `docs/FINAL-QA.md`.
+
+Últimos pontos que dependem do usuário/local:
+1. copiar os 11 assets conforme `docs/ASSET-INSTALL-MANUAL.md`;
+2. executar `npm run check:assets`;
+3. abrir `npm run dev` e conferir os crops finais das fotos originais;
+4. se algum crop pedir ajuste, alterar apenas `object-position`/frame, sem mudar a direção criativa.
+
+A branch não deve receber novas invenções visuais ou de conteúdo só para “melhorar”. A fase de criação foi encerrada; qualquer próxima mudança deve ser correção observada no navegador com os assets finais.
+
 ## Checkpoint mais recente — continuidade
 
 Último estado confirmado da branch:
