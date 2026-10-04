@@ -12,6 +12,7 @@ export default function TransitionSection() {
 
   useEffect(() => {
     let ctx: { revert: () => void } | undefined;
+    let media: { revert: () => void } | undefined;
     let cancelled = false;
 
     (async () => {
@@ -22,30 +23,34 @@ export default function TransitionSection() {
 
       ctx = gsap.context(() => {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const mobile = window.matchMedia("(max-width: 900px)").matches;
-        if (reduced || mobile) return;
+        media = gsap.matchMedia();
 
-        gsap.set(interiorRef.current, { clipPath: "inset(12% 43% 12% 43%)", scale: 1.08 });
-        gsap.set(copyRef.current, { opacity: 0, y: 38 });
+        media.add("(min-width: 901px)", () => {
+          if (reduced) return;
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 0.78,
-            invalidateOnRefresh: true
-          }
+          gsap.set(interiorRef.current, { clipPath: "inset(12% 43% 12% 43%)", scale: 1.08 });
+          gsap.set(copyRef.current, { opacity: 0, y: 38 });
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 0.78,
+              invalidateOnRefresh: true
+            }
+          });
+
+          tl.to(facadeRef.current, { scale: 1.1, opacity: 0.25, duration: 1, ease: "none" }, 0)
+            .to(interiorRef.current, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.72, ease: "power2.inOut" }, 0.05)
+            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.54);
         });
-
-        tl.to(facadeRef.current, { scale: 1.1, opacity: 0.25, duration: 1, ease: "none" }, 0)
-          .to(interiorRef.current, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.72, ease: "power2.inOut" }, 0.05)
-          .to(copyRef.current, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.54);
       }, sectionRef);
     })();
 
     return () => {
       cancelled = true;
+      media?.revert();
       ctx?.revert();
     };
   }, []);
