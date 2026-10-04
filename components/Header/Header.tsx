@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 import styles from "./Header.module.css";
 
 const nav = [
-  { label: "Estrutura", href: "#estrutura" },
-  { label: "Planos", href: "#planos" },
-  { label: "Contato", href: "#contato" }
+  { index: "01", label: "Estrutura", href: "#estrutura" },
+  { index: "02", label: "Planos", href: "#planos" },
+  { index: "03", label: "Contato", href: "#contato" }
 ];
 
 export default function Header() {
@@ -50,7 +50,7 @@ export default function Header() {
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
-    window.requestAnimationFrame(() => focusable[0]?.focus());
+    window.requestAnimationFrame(() => menuLinks[0]?.focus());
 
     return () => {
       document.body.style.overflow = previous;
@@ -67,15 +67,20 @@ export default function Header() {
 
     closeOnDesktop(desktop);
     desktop.addEventListener("change", closeOnDesktop);
-
     return () => desktop.removeEventListener("change", closeOnDesktop);
   }, []);
 
   return (
     <>
       <a className="skipLink" href="#conteudo">Pular para o conteúdo</a>
-      <header className={styles.header}>
-        <a className={styles.brand} href="#topo" aria-label="Academia Área 51 — início" onClick={() => setOpen(false)}>
+
+      <header className={`${styles.header} ${open ? styles.headerOpen : ""}`}>
+        <a
+          className={styles.brand}
+          href="#topo"
+          aria-label="Academia Área 51 — início"
+          onClick={() => setOpen(false)}
+        >
           <span className={styles.brandMark} aria-hidden="true" />
           <span>ÁREA 51</span>
         </a>
@@ -117,7 +122,16 @@ export default function Header() {
         className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
         aria-hidden={!open}
       >
-        <nav aria-label="Navegação mobile">
+        <div className={styles.menuBackdrop} aria-hidden="true">
+          <span>51</span>
+        </div>
+
+        <div className={styles.menuIntro}>
+          <span>Navegação</span>
+          <p>Camocim de São Félix</p>
+        </div>
+
+        <nav className={styles.mobileNav} aria-label="Navegação mobile">
           {nav.map((item) => (
             <a
               key={item.href}
@@ -125,9 +139,14 @@ export default function Header() {
               tabIndex={open ? 0 : -1}
               onClick={() => setOpen(false)}
             >
-              {item.label}
+              <small>{item.index}</small>
+              <strong>{item.label}</strong>
+              <span aria-hidden="true">↘</span>
             </a>
           ))}
+        </nav>
+
+        <div className={styles.menuFooter}>
           <a
             className={styles.mobileWhatsapp}
             href={SITE.whatsappHref}
@@ -136,12 +155,18 @@ export default function Header() {
             tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
           >
-            Falar no WhatsApp <span aria-hidden="true">↗</span>
+            <span>
+              <small>WhatsApp</small>
+              Falar com a Área 51
+            </span>
+            <strong aria-hidden="true">↗</strong>
           </a>
-        </nav>
-        <div className={styles.mobileMeta}>
-          <span>{SITE.city}</span>
-          <span>{SITE.hours.weekdays} · {SITE.hours.weekend}</span>
+
+          <div className={styles.mobileMeta}>
+            <span>{SITE.hours.weekdays}</span>
+            <span>{SITE.hours.weekend}</span>
+            <span>CREF {SITE.cref}</span>
+          </div>
         </div>
       </div>
     </>
