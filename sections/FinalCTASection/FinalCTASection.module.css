@@ -67,10 +67,19 @@
   transform: translateY(24px);
 }
 
+.content a span {
+  transition: transform 220ms var(--ease-out);
+}
+
 .content a:hover,
 .content a:focus-visible {
   background: var(--green);
   color: #061006;
+}
+
+.content a:hover span,
+.content a:focus-visible span {
+  transform: translate(2px, -2px);
 }
 
 .footer {
