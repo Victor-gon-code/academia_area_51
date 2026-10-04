@@ -116,10 +116,14 @@ main {
 }
 
 .sectionLabel::before {
-  width: 1.9rem;
-  height: 1px;
-  background: currentColor;
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  border: 1px solid currentColor;
+  border-radius: 50%;
   content: "";
+  opacity: 0.72;
+  transform: rotate(-12deg) scaleY(0.34);
 }
 
 .skipLink {
