@@ -1,5 +1,17 @@
 # HANDOFF — Implementação Academia Área 51
 
+## Auditoria adicional concluída
+
+Nova revisão completa realizada após o primeiro fechamento.
+
+HEAD validado antes desta atualização documental:
+`5001293f7e2a8e7cdfdb743d017cdc574f75a493`
+
+Principais correções finais: header opaco para evitar bleed entre seções, reset de offset mobile na Rotina, safe areas/notches, `ignoreMobileResize` no ScrollTrigger, WebGL restrito também em coarse pointer/Data Saver, fechamento sem animação de filter full-screen, semântica de menu/planos/loja e pequenas correções de copy factual.
+
+Relatório completo: `docs/FINAL-QA.md`.
+
+
 > Documento de continuidade. Se a conversa cair, este arquivo é a fonte de estado operacional para retomar sem mudar a direção aprovada.
 
 ## Checkpoint final de implementação — 04/10/2026
