@@ -24,6 +24,7 @@
 }
 
 .kicker p {
+  max-width: 34ch;
   color: rgba(244,247,242,0.52);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -140,4 +141,11 @@
     left: var(--gutter);
     font-size: clamp(5rem, 18vw, 12rem);
   }
+}
+
+
+@media (min-width: 901px) and (max-height: 760px) {
+  .kicker { top: calc(var(--header-h) + 0.7rem); }
+  .imageWrap { inset: 12vh 8vw 7vh; }
+  .panel h2 { bottom: 1.5vh; font-size: clamp(7rem, 18vw, 18rem); }
 }
