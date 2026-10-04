@@ -22,6 +22,7 @@ export default function TransitionSection() {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       if (cancelled || !sectionRef.current) return;
+
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.config({ ignoreMobileResize: true });
 
@@ -29,31 +30,29 @@ export default function TransitionSection() {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         media = gsap.matchMedia();
 
-        media.add("(min-width: 901px)", () => {
+        const buildTimeline = (mobile: boolean) => {
           if (reduced) return;
 
           gsap.set(facadeRef.current, { autoAlpha: 1, scale: 1 });
           gsap.set(interiorRef.current, {
             autoAlpha: 0,
-            clipPath: "inset(8% 48% 8% 48%)",
-            scale: 1.035
+            clipPath: mobile ? "inset(12% 7% 12% 7%)" : "inset(8% 48% 8% 48%)",
+            scale: mobile ? 1.025 : 1.035
           });
-          gsap.set(copyRef.current, { opacity: 0, y: 34 });
+          gsap.set(copyRef.current, { opacity: 0, y: mobile ? 24 : 34 });
 
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top top",
               end: "bottom bottom",
-              scrub: 0.72,
+              scrub: mobile ? 0.62 : 0.72,
               invalidateOnRefresh: true
             }
           });
 
-          // Primeiro momento: a fachada permanece sozinha tempo suficiente para ser lida.
           tl.to(facadeRef.current, { scale: 1, autoAlpha: 1, duration: 0.42, ease: "none" }, 0)
-            // Só depois do primeiro scroll o interior começa a entrar.
-            .to(facadeRef.current, { scale: 1.035, autoAlpha: 0.16, duration: 0.54, ease: "none" }, 0.42)
+            .to(facadeRef.current, { scale: 1.03, autoAlpha: 0.12, duration: 0.54, ease: "none" }, 0.42)
             .to(
               interiorRef.current,
               {
@@ -66,9 +65,11 @@ export default function TransitionSection() {
               0.46
             )
             .to(copyRef.current, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.88)
-            // Respiro final: texto e segunda imagem ficam parados antes da próxima seção.
-            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.42, ease: "none" }, ">");
-        });
+            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.5, ease: "none" }, ">");
+        };
+
+        media.add("(min-width: 901px)", () => buildTimeline(false));
+        media.add("(max-width: 900px)", () => buildTimeline(true));
       }, sectionRef);
     })();
 
@@ -93,7 +94,7 @@ export default function TransitionSection() {
               alt="Fachada real da Academia Área 51 com o letreiro da marca"
               fill
               quality={90}
-              sizes="(max-width: 900px) 100vw, 38vw"
+              sizes="(max-width: 900px) 92vw, 38vw"
             />
           </div>
         </div>
@@ -105,7 +106,7 @@ export default function TransitionSection() {
               alt="Interior real da Academia Área 51 visto a partir do corredor de equipamentos"
               fill
               quality={88}
-              sizes="(max-width: 900px) 100vw, 48vw"
+              sizes="(max-width: 900px) 92vw, 48vw"
             />
           </div>
           <div className={styles.shade} aria-hidden="true" />
