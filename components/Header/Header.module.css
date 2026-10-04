@@ -30,15 +30,15 @@
   height: 0.62rem;
   border: 1px solid var(--green);
   border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(115, 255, 47, 0.06);
 }
 
 .brandMark::after {
   position: absolute;
-  inset: -0.35rem;
-  border: 1px solid rgba(115, 255, 47, 0.18);
+  inset: -0.38rem;
+  border: 1px solid rgba(115, 255, 47, 0.24);
   border-radius: 50%;
   content: "";
+  transform: rotate(-18deg) scaleY(0.38);
 }
 
 .desktopNav {
@@ -87,10 +87,22 @@
   transition: background 220ms ease, color 220ms ease;
 }
 
+.whatsapp span,
+.mobileWhatsapp span {
+  transition: transform 220ms var(--ease-out);
+}
+
 .whatsapp:hover,
 .whatsapp:focus-visible {
   background: var(--green);
   color: #071006;
+}
+
+.whatsapp:hover span,
+.whatsapp:focus-visible span,
+.mobileWhatsapp:hover span,
+.mobileWhatsapp:focus-visible span {
+  transform: translate(2px, -2px);
 }
 
 .menuButton {
