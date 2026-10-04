@@ -14,7 +14,7 @@ export default function RoutineSection() {
 
       <div className={styles.mainImage}>
         <Image
-          src="/assets/area51/entrance.avif"
+          src="/assets/area51/entrance.png"
           alt="Entrada e recepção reais da Academia Área 51, com equipamentos ao redor"
           fill
           sizes="(max-width: 900px) 100vw, 58vw"
@@ -23,7 +23,7 @@ export default function RoutineSection() {
 
       <div className={styles.detailImage}>
         <Image
-          src="/assets/area51/bathroom.avif"
+          src="/assets/area51/bathroom.png"
           alt="Área de lavatório e espelho da Academia Área 51"
           fill
           sizes="(max-width: 900px) 44vw, 18vw"
