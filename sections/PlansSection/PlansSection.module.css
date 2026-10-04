@@ -1,7 +1,11 @@
 .section {
   position: relative;
   min-height: 520svh;
-  background: #020302;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(115, 255, 47, 0.085), transparent 27%),
+    radial-gradient(circle at 86% 30%, rgba(115, 255, 47, 0.045), transparent 24%),
+    linear-gradient(180deg, #08110a 0%, #050805 52%, #020302 100%);
 }
 
 .sticky {
@@ -10,29 +14,32 @@
   min-height: 100svh;
   overflow: hidden;
   padding: calc(var(--header-h) + 1.5rem) var(--gutter) 1.8rem;
-  background: #020302;
+  background: transparent;
 }
 
 .sticky::before {
   position: absolute;
-  top: 12%;
-  right: -9vw;
-  width: min(38vw, 34rem);
-  aspect-ratio: 1;
-  border: 1px solid rgba(115, 255, 47, 0.2);
+  top: 10%;
+  right: -10rem;
+  width: 30rem;
+  height: 30rem;
   border-radius: 50%;
+  background: radial-gradient(circle, rgba(115, 255, 47, 0.075), transparent 68%);
   content: "";
+  filter: blur(18px);
   pointer-events: none;
 }
 
 .sticky::after {
   position: absolute;
-  top: 0;
-  right: calc(var(--gutter) + 23rem);
-  bottom: 0;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.07);
+  bottom: -12rem;
+  left: 8%;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.025), transparent 70%);
   content: "";
+  filter: blur(20px);
   pointer-events: none;
 }
 
@@ -44,7 +51,7 @@
   align-items: end;
   gap: clamp(2rem, 5vw, 6rem);
   padding-bottom: clamp(1.5rem, 2.8vh, 2.25rem);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .headerTitle {
@@ -77,6 +84,10 @@
   gap: clamp(2rem, 5vw, 6rem);
   align-items: stretch;
   margin-top: clamp(1.5rem, 3.5vh, 2.8rem);
+  padding: clamp(1.2rem, 2vw, 1.7rem);
+  border-radius: 1.4rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.026), rgba(255, 255, 255, 0.012));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .planStage {
@@ -86,13 +97,7 @@
 }
 
 .stageRule {
-  position: absolute;
-  top: 0.25rem;
-  bottom: 0.25rem;
-  left: 0;
-  width: 2px;
-  background: var(--green);
-  opacity: 0.78;
+  display: none;
 }
 
 .plan {
@@ -155,7 +160,10 @@
   min-width: 0;
   flex-direction: column;
   justify-content: center;
-  padding-left: clamp(1.5rem, 2.6vw, 2.7rem);
+  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.022);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .railHeading {
@@ -316,7 +324,9 @@
   .mobilePlans {
     display: block;
     padding: calc(var(--header-h) + 3rem) var(--gutter) 5.5rem;
-    background: #020302;
+    background:
+      radial-gradient(circle at 86% 12%, rgba(115, 255, 47, 0.07), transparent 24%),
+      linear-gradient(180deg, #071009 0%, #030503 100%);
   }
 
   .mobilePlans header {
@@ -326,7 +336,7 @@
     justify-content: flex-end;
     gap: 1.15rem;
     padding-bottom: 2.7rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .mobilePlans header h2 {
@@ -350,18 +360,19 @@
     justify-content: center;
     overflow: hidden;
     padding: 2.6rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .mobilePlans article::after {
     position: absolute;
-    right: -1.1rem;
-    bottom: -1.9rem;
-    width: 7rem;
-    height: 7rem;
-    border: 1px solid rgba(115, 255, 47, 0.18);
+    right: -3rem;
+    bottom: -3rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
+    background: radial-gradient(circle, rgba(115, 255, 47, 0.07), transparent 68%);
     content: "";
+    filter: blur(8px);
   }
 
   .mobilePlanTop {
@@ -440,7 +451,7 @@
     justify-content: flex-end;
     gap: 1.15rem;
     padding-bottom: 2.7rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .mobilePlans header h2 {
@@ -460,7 +471,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 2.6rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .mobilePlanTop {
