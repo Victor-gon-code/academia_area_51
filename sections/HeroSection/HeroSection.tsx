@@ -83,7 +83,7 @@ export default function HeroSection() {
           <div className={styles.imageFrame}>
             <Image
               src="/assets/area51/facade.png"
-              alt="Fachada real da Academia Área 51 iluminada à noite"
+              alt="Fachada real da Academia Área 51 com o letreiro da marca"
               fill
               priority
               sizes="(max-width: 900px) 92vw, 52vw"
