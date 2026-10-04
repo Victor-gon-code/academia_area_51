@@ -243,7 +243,13 @@
     padding: calc(var(--header-h) + 1rem) var(--gutter) max(1.35rem, env(safe-area-inset-bottom));
   }
   .sticky::before {
-    background: linear-gradient(180deg, rgba(5, 7, 6, 0.14) 5%, rgba(5, 7, 6, 0.38) 45%, rgba(5, 7, 6, 0.98) 84%);
+    background: linear-gradient(
+      180deg,
+      rgba(5, 7, 6, 0.12) 4%,
+      rgba(5, 7, 6, 0.34) 38%,
+      rgba(5, 7, 6, 0.72) 59%,
+      rgba(5, 7, 6, 0.98) 78%
+    );
   }
   .ambient { display: none; }
   .visual {
