@@ -145,7 +145,9 @@ export default function StructureSection() {
                   alt={chapter.alt}
                   fill
                   quality={88}
-                  sizes="(max-width: 900px) 100vw, 42vw"
+                  sizes="(max-width: 900px) 92vw, 42vw"
+                  loading="eager"
+                  fetchPriority="low"
                   style={{ objectPosition: chapter.position }}
                 />
                 <div className={styles.overlay} aria-hidden="true" />
@@ -181,7 +183,7 @@ export default function StructureSection() {
                 alt={chapter.alt}
                 fill
                 quality={86}
-                sizes="100vw"
+                sizes="92vw"
                 style={{ objectPosition: chapter.position }}
               />
             </div>
