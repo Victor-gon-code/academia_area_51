@@ -1,13 +1,19 @@
 # Assets reais usados
 
-Todos os arquivos em `public/assets/area51` são derivados AVIF otimizados dos materiais reais fornecidos para a Academia Área 51. Nenhuma cena ou pessoa foi gerada para substituir o espaço real.
+O site usa somente fotografias e identidade visual reais fornecidas para a Academia Área 51. Nenhuma pessoa, aluno, ambiente ou produto foi gerado para substituir o espaço real.
 
-- `facade.avif`: fachada/letreiro — Hero, transição e encerramento.
-- `interior-main.avif`: visão geral interna — transição e estrutura.
-- `weights.avif`: musculação/pesos — capítulo força, detalhe e crop de Movimento.
-- `functional.avif`: área funcional — capítulo funcional e Movimento.
-- `climb.avif`: escalada — verticalidade e Movimento.
-- `entrance.avif`: entrada/recepção real — seção Rotina.
-- `bathroom.avif`: detalhe de ambiente — seção Rotina.
-- `shop.avif`: loja real — suplementos/itens fitness sem catálogo inventado.
-- `logo.avif`: logo real — Intro discreta.
+Os arquivos devem ficar em `public/assets/area51/`. O projeto usa os originais PNG/JPG e deixa o `next/image` otimizar a entrega.
+
+- `facade.png` — fachada/letreiro: Hero, transição e encerramento.
+- `interior-main.png` — visão geral interna: transição e estrutura.
+- `interior-alt.png` — segundo ângulo real da musculação: detalhe editorial.
+- `weights.jpg` — musculação/pesos: capítulo força.
+- `weights-detail.png` — segundo arquivo real da área de pesos: Movimento.
+- `functional.png` — área funcional: capítulo funcional e PUXAR.
+- `climb.png` — escalada: verticalidade e SUBIR.
+- `entrance.png` — entrada/recepção real: seção Rotina.
+- `bathroom.png` — detalhe real de ambiente: seção Rotina.
+- `shop.png` — loja real: suplementos/itens fitness sem catálogo inventado.
+- `logo.jpg` — logo original: Intro.
+
+O mapeamento exato entre os nomes recebidos e os nomes acima está em `docs/ASSET-INSTALL-MANUAL.md`.
