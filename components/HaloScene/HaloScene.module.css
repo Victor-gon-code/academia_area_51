@@ -31,7 +31,7 @@
 
 .ready .fallback { opacity: 0.12; }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .fallback { width: 76vw; }
   .ready canvas { opacity: 0.58; }
 }
