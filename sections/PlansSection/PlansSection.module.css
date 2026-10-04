@@ -295,10 +295,6 @@
 }
 
 @media (max-width: 1100px) and (min-width: 901px) {
-  .sticky::after {
-    right: calc(var(--gutter) + 19rem);
-  }
-
   .header {
     grid-template-columns: minmax(0, 1fr) 20rem;
   }
