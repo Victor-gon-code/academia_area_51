@@ -6,7 +6,7 @@ export default function SupplementsSection() {
     <section className={styles.section} aria-labelledby="supplements-title">
       <div className={styles.image}>
         <Image
-          src="/assets/area51/shop.avif"
+          src="/assets/area51/shop.png"
           alt="Loja real integrada ao espaço da Academia Área 51"
           fill
           sizes="(max-width: 900px) 100vw, 46vw"
