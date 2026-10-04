@@ -34,4 +34,5 @@ jobs:
           name: area51-runtime
           path: runtime
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 1
