@@ -108,7 +108,7 @@
 
 .mobilePlans { display: none; }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .section { min-height: 0; }
   .sticky { display: none; }
   .mobilePlans {
