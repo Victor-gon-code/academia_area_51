@@ -203,13 +203,11 @@
     font-weight: 700;
   }
   .mobileDetail {
-    position: absolute;
-    right: var(--gutter);
-    bottom: 1.8rem;
-    width: 34vw;
-    max-width: 9.5rem;
+    position: relative;
+    width: min(34vw, 9.5rem);
     aspect-ratio: 0.75;
     overflow: hidden;
+    margin: 1.5rem 0 0 auto;
     border: 1px solid rgba(255,255,255,0.14);
   }
   .mobileDetail img { object-fit: cover; }
