@@ -57,7 +57,7 @@ export default function FinalCTASection() {
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="final-title">
       <div ref={imageRef} className={styles.image}>
-        <Image src="/assets/area51/facade.png" alt="" fill quality={88} sizes="100vw" />
+        <Image src="/assets/area51/facade.png" alt="" fill quality={90} sizes="100vw" />
       </div>
       <div className={styles.shade} aria-hidden="true" />
       <div className={styles.content}>
