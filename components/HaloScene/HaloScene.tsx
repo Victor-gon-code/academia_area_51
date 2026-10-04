@@ -3,17 +3,45 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./HaloScene.module.css";
 
+type MotionMode = {
+  compact: boolean;
+  reduced: boolean;
+};
+
 export default function HaloScene() {
   const hostRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const [mode, setMode] = useState<MotionMode | null>(null);
+
+  useEffect(() => {
+    const compactQuery = window.matchMedia("(max-width: 900px)");
+    const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const syncMode = () => {
+      setMode({
+        compact: compactQuery.matches,
+        reduced: reducedQuery.matches
+      });
+    };
+
+    syncMode();
+    compactQuery.addEventListener("change", syncMode);
+    reducedQuery.addEventListener("change", syncMode);
+
+    return () => {
+      compactQuery.removeEventListener("change", syncMode);
+      reducedQuery.removeEventListener("change", syncMode);
+    };
+  }, []);
 
   useEffect(() => {
     const host = hostRef.current;
-    if (!host) return;
+    if (!host || !mode) return;
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const compact = window.matchMedia("(max-width: 900px)").matches;
-    if (reduced || compact) return;
+    setReady(false);
+    host.querySelectorAll("canvas").forEach((canvas) => canvas.remove());
+
+    if (mode.reduced || mode.compact) return;
 
     let cancelled = false;
     let frame = 0;
@@ -159,7 +187,7 @@ export default function HaloScene() {
       cancelled = true;
       cleanup();
     };
-  }, []);
+  }, [mode]);
 
   return (
     <div ref={hostRef} className={`${styles.scene} ${ready ? styles.ready : ""}`} aria-hidden="true">
