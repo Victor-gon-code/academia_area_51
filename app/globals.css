@@ -162,7 +162,7 @@ main {
 
 @media (min-width: 901px) and (max-height: 760px) {
   :root {
-    --header-h: 64px;
+    --header-base-h: 64px;
   }
 }
 
