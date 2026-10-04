@@ -68,6 +68,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .section {
+    min-height: 100svh;
+  }
+
+  .sticky {
+    position: relative;
+  }
+
   .copy {
     opacity: 1;
     transform: none;
