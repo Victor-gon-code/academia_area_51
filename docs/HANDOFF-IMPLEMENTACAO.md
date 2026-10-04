@@ -225,59 +225,43 @@ Roda:
 
 Houve falhas iniciais de tipagem GSAP/`matchMedia`, já corrigidas. Runs posteriores ficaram verdes.
 
-## 9. Assets reais — estado importante
+## 9. Assets reais — estado atual
 
-O código referencia estes caminhos:
+A estratégia final abandonou a conversão/transferência de binários pelo conector do GitHub. O usuário aceitou adicionar os arquivos reais manualmente ao puxar o projeto.
 
-- `/assets/area51/logo.avif`
-- `/assets/area51/facade.avif`
-- `/assets/area51/interior-main.avif`
-- `/assets/area51/weights.avif`
-- `/assets/area51/functional.avif`
-- `/assets/area51/climb.avif`
-- `/assets/area51/entrance.avif`
-- `/assets/area51/bathroom.avif`
-- `/assets/area51/shop.avif`
+O código espera **11 arquivos** em `public/assets/area51/`:
 
-Uso previsto está documentado em `docs/ASSETS.md`.
+- `logo.jpg`
+- `facade.png`
+- `interior-main.png`
+- `interior-alt.png`
+- `weights.jpg`
+- `weights-detail.png`
+- `functional.png`
+- `climb.png`
+- `entrance.png`
+- `bathroom.png`
+- `shop.png`
 
-### ATENÇÃO AO RETOMAR
+O mapeamento dos nomes originais fornecidos pelo usuário está em `docs/ASSET-INSTALL-MANUAL.md`.
 
-No último inventário da árvore da branch, a pasta `public/assets/area51` **ainda não aparecia commitada**, embora blobs binários AVIF tenham sido criados durante a sessão.
-
-Foram criados blobs Git binários durante o trabalho. Alguns SHAs conhecidos da sessão:
-- `efbaaae153e46e028a8f8a7283509088217f9bb9`
-- `691f6baae564161e182492e194845effe3a08b0e`
-- `687bf041532518289b530c35fb0092cbf00611bf`
-
-**Não associar esses SHAs a nomes de arquivos por adivinhação.** Antes de montar a tree final, confirmar qual blob corresponde a qual asset real. O erro mais perigoso seria colocar uma foto real no capítulo errado.
-
-Se os uploads originais estiverem disponíveis na conversa/projeto, revalidar visualmente cada asset e então:
-1. gerar/usar AVIF otimizado;
-2. criar blob;
-3. criar tree com `public/assets/area51/<nome>.avif`;
-4. criar commit;
-5. mover `refs/heads/feat/area51-v1`;
-6. confirmar que a árvore contém todos os 9 assets;
-7. rodar CI.
-
-A árvore **não deve** ficar apenas com referências quebradas.
+Depois de copiar, executar `npm run check:assets`. O `next/image` fará a otimização de entrega, então não é necessário converter os originais para AVIF antes de rodar.
 
 ## 10. Assets e semântica visual
 
-Mapeamento aprovado:
+- `facade.png`: fachada/letreiro — Hero, transição e encerramento
+- `interior-main.png`: visão geral interna — transição/estrutura
+- `interior-alt.png`: segundo ângulo real — detalhe editorial da força
+- `weights.jpg`: musculação/força
+- `weights-detail.png`: segundo recorte real da área de pesos — Movimento
+- `functional.png`: funcional/movimento
+- `climb.png`: escalada/verticalidade
+- `entrance.png`: recepção/entrada/rotina
+- `bathroom.png`: detalhe de ambiente/rotina
+- `shop.png`: loja real
+- `logo.jpg`: identidade original
 
-- `facade.avif`: fachada/letreiro — Hero, transição, encerramento
-- `interior-main.avif`: visão geral interna — transição/estrutura
-- `weights.avif`: musculação/força
-- `functional.avif`: funcional/movimento
-- `climb.avif`: escalada/verticalidade
-- `entrance.avif`: recepção/entrada/rotina
-- `bathroom.avif`: detalhe de ambiente/rotina
-- `shop.avif`: loja real
-- `logo.avif`: logo real
-
-As fotos não são decoração genérica: funcionam como prova/autenticidade do espaço real.
+As fotos são prova do espaço real, não decoração. Não trocar por banco de imagens nem por geração sintética.
 
 ## 11. Scroll / motion — princípios
 
@@ -368,7 +352,7 @@ Metas:
 
 1. Confirmar branch `feat/area51-v1`.
 2. Confirmar CI do HEAD.
-3. Resolver os **9 assets reais** em `public/assets/area51` sem adivinhar mapeamento.
+3. Copiar os **11 assets reais** em `public/assets/area51` conforme `docs/ASSET-INSTALL-MANUAL.md` e executar `npm run check:assets`.
 4. Verificar visualmente cada seção com esses assets.
 5. Fazer auditoria de composição desktop.
 6. Fazer auditoria de mobile separadamente.
