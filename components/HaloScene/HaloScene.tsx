@@ -15,21 +15,25 @@ export default function HaloScene() {
 
   useEffect(() => {
     const compactQuery = window.matchMedia("(max-width: 900px)");
+    const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
     const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
 
     const syncMode = () => {
       setMode({
-        compact: compactQuery.matches,
+        compact: compactQuery.matches || coarsePointerQuery.matches || connection?.saveData === true,
         reduced: reducedQuery.matches
       });
     };
 
     syncMode();
     compactQuery.addEventListener("change", syncMode);
+    coarsePointerQuery.addEventListener("change", syncMode);
     reducedQuery.addEventListener("change", syncMode);
 
     return () => {
       compactQuery.removeEventListener("change", syncMode);
+      coarsePointerQuery.removeEventListener("change", syncMode);
       reducedQuery.removeEventListener("change", syncMode);
     };
   }, []);
