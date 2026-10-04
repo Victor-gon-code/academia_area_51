@@ -47,7 +47,8 @@ export default function TransitionSection() {
 
           tl.to(facadeRef.current, { scale: 1.1, opacity: 0.25, duration: 1, ease: "none" }, 0)
             .to(interiorRef.current, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.72, ease: "power2.inOut" }, 0.05)
-            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.54);
+            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.54)
+            .to(copyRef.current, { opacity: 1, y: 0, duration: 0.34, ease: "none" }, 1);
         });
       }, sectionRef);
     })();
