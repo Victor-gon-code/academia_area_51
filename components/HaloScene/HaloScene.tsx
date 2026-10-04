@@ -17,6 +17,7 @@ export default function HaloScene() {
 
     let cancelled = false;
     let frame = 0;
+    let visible = true;
     let cleanup = () => {};
 
     async function mount() {
@@ -28,7 +29,11 @@ export default function HaloScene() {
         const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
         camera.position.z = 6;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+        const renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          alpha: true,
+          powerPreference: "high-performance"
+        });
         renderer.setClearColor(0x000000, 0);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.65));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -51,7 +56,11 @@ export default function HaloScene() {
 
         const minor = new THREE.Mesh(
           new THREE.TorusGeometry(1.35, 0.018, 8, 112),
-          new THREE.MeshBasicMaterial({ color: 0x78ff3a, transparent: true, opacity: 0.58 })
+          new THREE.MeshBasicMaterial({
+            color: 0x78ff3a,
+            transparent: true,
+            opacity: 0.58
+          })
         );
         minor.rotation.x = Math.PI * 0.08;
         group.add(minor);
@@ -63,8 +72,8 @@ export default function HaloScene() {
 
         let pointerX = 0;
         let pointerY = 0;
+
         const onPointer = (event: PointerEvent) => {
-          if (reduced) return;
           pointerX = (event.clientX / window.innerWidth - 0.5) * 0.3;
           pointerY = (event.clientY / window.innerHeight - 0.5) * 0.22;
         };
@@ -77,24 +86,60 @@ export default function HaloScene() {
           camera.updateProjectionMatrix();
         };
 
-        const animate = () => {
+        const renderFrame = () => {
+          frame = 0;
+          if (!visible || document.hidden || cancelled) return;
+
           group.rotation.x += (pointerY - group.rotation.x) * 0.035;
           group.rotation.y += (pointerX - group.rotation.y) * 0.035;
           group.rotation.z += 0.00105;
           renderer.render(scene, camera);
-          frame = window.requestAnimationFrame(animate);
+          frame = window.requestAnimationFrame(renderFrame);
+        };
+
+        const start = () => {
+          if (!frame && visible && !document.hidden && !cancelled) {
+            frame = window.requestAnimationFrame(renderFrame);
+          }
+        };
+
+        const stop = () => {
+          if (frame) {
+            window.cancelAnimationFrame(frame);
+            frame = 0;
+          }
+        };
+
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            visible = entry.isIntersecting;
+            if (visible) start();
+            else stop();
+          },
+          { rootMargin: "160px 0px" }
+        );
+
+        const onVisibility = () => {
+          if (document.hidden) stop();
+          else start();
         };
 
         window.addEventListener("pointermove", onPointer, { passive: true });
         window.addEventListener("resize", resize, { passive: true });
+        document.addEventListener("visibilitychange", onVisibility);
+        observer.observe(host);
+
         resize();
-        animate();
+        renderer.render(scene, camera);
+        start();
         setReady(true);
 
         cleanup = () => {
-          window.cancelAnimationFrame(frame);
+          stop();
+          observer.disconnect();
           window.removeEventListener("pointermove", onPointer);
           window.removeEventListener("resize", resize);
+          document.removeEventListener("visibilitychange", onVisibility);
           major.geometry.dispose();
           minor.geometry.dispose();
           major.material.dispose();
