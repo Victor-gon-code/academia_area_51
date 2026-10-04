@@ -47,7 +47,7 @@ export default function MovementSection() {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         media = gsap.matchMedia();
 
-        media.add("(min-width: 761px)", () => {
+        media.add("(min-width: 901px)", () => {
           if (reduced) return;
           gsap.to(trackRef.current, {
             xPercent: -66.666,
@@ -87,7 +87,7 @@ export default function MovementSection() {
                   src={moment.image}
                   alt={moment.alt}
                   fill
-                  sizes="(max-width: 760px) 100vw, 84vw"
+                  sizes="(max-width: 900px) 100vw, 84vw"
                   style={{ objectPosition: moment.position }}
                 />
                 <div className={styles.shade} aria-hidden="true" />
