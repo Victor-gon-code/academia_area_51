@@ -22,7 +22,7 @@ export const STRUCTURE_CHAPTERS = [
     id: "visao-geral",
     label: "Visão geral",
     title: "Não parece só mais uma academia. E não foi feita pra parecer.",
-    image: "/assets/area51/interior-main.avif",
+    image: "/assets/area51/interior-main.png",
     alt: "Interior real da Academia Área 51 com equipamentos e iluminação geométrica no teto",
     position: "50% 48%"
   },
@@ -30,7 +30,7 @@ export const STRUCTURE_CHAPTERS = [
     id: "forca",
     label: "Musculação / força",
     title: "Peso no lugar. Espaço para trabalhar.",
-    image: "/assets/area51/weights.avif",
+    image: "/assets/area51/weights.jpg",
     alt: "Área real de musculação e pesos livres da Academia Área 51",
     position: "50% 52%"
   },
@@ -38,7 +38,7 @@ export const STRUCTURE_CHAPTERS = [
     id: "movimento",
     label: "Funcional / movimento",
     title: "O treino muda de direção.",
-    image: "/assets/area51/functional.avif",
+    image: "/assets/area51/functional.png",
     alt: "Área funcional real com argolas, barras, cordas e estrutura da Academia Área 51",
     position: "50% 50%"
   },
@@ -46,7 +46,7 @@ export const STRUCTURE_CHAPTERS = [
     id: "verticalidade",
     label: "Escalada / verticalidade",
     title: "E, às vezes, vai pra cima.",
-    image: "/assets/area51/climb.avif",
+    image: "/assets/area51/climb.png",
     alt: "Parede de escalada real da Academia Área 51",
     position: "50% 50%"
   }
