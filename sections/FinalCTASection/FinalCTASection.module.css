@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  min-height: 138svh;
+  min-height: 158svh;
   overflow: hidden;
   background: #020302;
 }
@@ -104,7 +104,7 @@
 }
 
 @media (max-width: 900px) {
-  .section { min-height: 118svh; }
+  .section { min-height: 136svh; }
   .image img { object-position: 50% 18%; }
   .content {
     justify-content: flex-end;
