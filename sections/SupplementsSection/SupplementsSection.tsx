@@ -9,7 +9,7 @@ export default function SupplementsSection() {
           src="/assets/area51/shop.avif"
           alt="Loja real integrada ao espaço da Academia Área 51"
           fill
-          sizes="(max-width: 760px) 100vw, 46vw"
+          sizes="(max-width: 900px) 100vw, 46vw"
         />
       </div>
       <div className={styles.copy}>
