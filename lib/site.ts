@@ -2,7 +2,7 @@ export const SITE = {
   name: "Academia Área 51",
   city: "Camocim de São Félix",
   whatsappDisplay: "+55 81 99660-6027",
-  whatsappHref: "https://wa.me/5581996606027?text=Oi%21%20Vim%20pelo%20site%20da%20%C3%81rea%2051%20e%20queria%20saber%20mais.",
+  whatsappHref: "https://wa.me/5581996606027?text=Oi%21%20Vi%20o%20site%20da%20%C3%81rea%2051%20e%20queria%20saber%20como%20fa%C3%A7o%20para%20come%C3%A7ar.",
   cref: "003721-PJ",
   hours: {
     weekdays: "Seg a Sex 4h–23h",
