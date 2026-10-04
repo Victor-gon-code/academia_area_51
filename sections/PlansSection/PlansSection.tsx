@@ -27,7 +27,7 @@ export default function PlansSection() {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         media = gsap.matchMedia();
 
-        media.add("(min-width: 901px)", () => {
+        const buildTimeline = (mobile: boolean) => {
           if (reduced) return;
 
           const plans = gsap.utils.toArray<HTMLElement>("[data-plan]");
@@ -37,19 +37,22 @@ export default function PlansSection() {
           plans.forEach((plan, index) => {
             gsap.set(plan, {
               autoAlpha: index === 0 ? 1 : 0,
-              y: index === 0 ? 0 : 30
+              y: index === 0 ? 0 : mobile ? 18 : 30
             });
           });
 
           nav.forEach((item, index) => {
             gsap.set(item, {
-              opacity: index === 0 ? 1 : 0.27,
-              x: index === 0 ? 0 : 10
+              opacity: index === 0 ? 1 : mobile ? 0.38 : 0.27,
+              x: mobile ? 0 : index === 0 ? 0 : 10
             });
           });
 
           if (progress) {
-            gsap.set(progress, { scaleY: 1 / plans.length, transformOrigin: "top" });
+            gsap.set(progress, {
+              scaleY: 1 / plans.length,
+              transformOrigin: "top"
+            });
           }
 
           const tl = gsap.timeline({
@@ -57,19 +60,19 @@ export default function PlansSection() {
               trigger: sectionRef.current,
               start: "top top",
               end: "bottom bottom",
-              scrub: 0.58,
+              scrub: mobile ? 0.52 : 0.58,
               invalidateOnRefresh: true
             }
           });
 
-          const step = 1.2;
+          const step = mobile ? 1.12 : 1.2;
 
           for (let i = 1; i < plans.length; i += 1) {
             const at = i * step;
 
             tl.to(
               plans[i - 1],
-              { autoAlpha: 0, y: -26, duration: 0.26, ease: "none" },
+              { autoAlpha: 0, y: mobile ? -16 : -26, duration: 0.26, ease: "none" },
               at - 0.2
             )
               .to(
@@ -79,7 +82,7 @@ export default function PlansSection() {
               )
               .to(
                 nav[i - 1],
-                { opacity: 0.27, x: 10, duration: 0.22, ease: "none" },
+                { opacity: mobile ? 0.38 : 0.27, x: mobile ? 0 : 10, duration: 0.22, ease: "none" },
                 at - 0.14
               )
               .to(
@@ -101,11 +104,14 @@ export default function PlansSection() {
           if (finalPlan) {
             tl.to(
               finalPlan,
-              { autoAlpha: 1, y: 0, duration: 1.05, ease: "none" },
+              { autoAlpha: 1, y: 0, duration: mobile ? 1.15 : 1.05, ease: "none" },
               plans.length * step
             );
           }
-        });
+        };
+
+        media.add("(min-width: 901px)", () => buildTimeline(false));
+        media.add("(max-width: 900px)", () => buildTimeline(true));
       }, sectionRef);
     })();
 
@@ -132,8 +138,6 @@ export default function PlansSection() {
 
         <div className={styles.planLayout}>
           <div className={styles.planStage}>
-            <span className={styles.stageRule} aria-hidden="true" />
-
             {PLANS.map((plan, index) => (
               <article key={plan.name} data-plan className={styles.plan}>
                 <div className={styles.planIdentity}>
@@ -180,12 +184,6 @@ export default function PlansSection() {
       </div>
 
       <div className={styles.mobilePlans}>
-        <header>
-          <span className="sectionLabel">Planos</span>
-          <h2 data-display>Escolha seu tempo.</h2>
-          <p>Quatro opções, com os valores na tela e sem enrolação.</p>
-        </header>
-
         {PLANS.map((plan, index) => (
           <article key={plan.name}>
             <div className={styles.mobilePlanTop}>
@@ -196,13 +194,6 @@ export default function PlansSection() {
             <p>{plan.copy}</p>
           </article>
         ))}
-
-        <div className={styles.mobileFooter}>
-          <p>Ficou em dúvida entre dois planos? Chama a Área 51 e resolve direto com a gente.</p>
-          <a href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer">
-            Falar sobre os planos <span aria-hidden="true">↗</span>
-          </a>
-        </div>
       </div>
     </section>
   );
