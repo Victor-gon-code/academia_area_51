@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  min-height: 560svh;
+  min-height: 440svh;
   background: var(--bg);
 }
 
@@ -120,30 +120,13 @@
   text-transform: uppercase;
 }
 
-.forceDetail {
-  position: absolute;
-  z-index: 6;
-  right: clamp(28vw, 34vw, 32rem);
-  bottom: clamp(5.5rem, 11vh, 8rem);
-  width: clamp(7.5rem, 11vw, 11rem);
-  aspect-ratio: 0.72;
-  overflow: hidden;
-  border-radius: 0.35rem;
-  box-shadow: 0 18px 54px rgba(0,0,0,0.44);
-}
-
-.forceDetail img {
-  object-fit: cover;
-  object-position: 55% 48%;
-}
-
 .mobileChapters {
   display: none;
 }
 
 @media (max-width: 900px) {
   .section {
-    min-height: 440svh;
+    min-height: 390svh;
   }
 
   .desktopStage {
@@ -216,10 +199,6 @@
     background: var(--green);
     color: transparent;
     font-size: 0;
-  }
-
-  .forceDetail {
-    display: none;
   }
 
   .mobileChapters {
@@ -315,5 +294,4 @@
   .copy h3 { font-size: clamp(3.6rem, 6.6vw, 7.2rem); }
   .media { top: 5rem; bottom: 4.3rem; width: min(39vw, 33rem); }
   .nav { gap: 0.65rem; bottom: 0.9rem; }
-  .forceDetail { bottom: 4.8rem; width: clamp(6.5rem, 9vw, 8.5rem); }
 }
