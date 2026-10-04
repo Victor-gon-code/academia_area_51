@@ -6,33 +6,30 @@ export default function RoutineSection() {
     <section className={styles.section} aria-labelledby="routine-title">
       <div className={styles.copy}>
         <span className="sectionLabel">Rotina real</span>
-        <h2 id="routine-title" data-display>O lugar para onde você volta.</h2>
+        <h2 id="routine-title" data-display>
+          Você chega, treina, volta. Quando percebe, já faz parte do dia.
+        </h2>
         <p>
-          No começo, você repara em tudo. Depois de alguns dias, já sabe onde fica cada coisa, onde recuperar o fôlego e por onde passa quando chega. A academia deixa de ser novidade. Entra na rotina.
+          No primeiro treino, tudo chama atenção. Depois de alguns dias, você já reconhece o espaço, o ritmo e o caminho que faz quando chega. A Área 51 deixa de ser novidade e começa a fazer parte da rotina.
         </p>
+        <span className={styles.note}>Sem cena montada. É o espaço real.</span>
       </div>
 
-      <div className={styles.mainImage}>
-        <Image
-          src="/assets/area51/entrance.png"
-          alt="Entrada e recepção reais da Academia Área 51, com equipamentos ao redor"
-          fill
-          sizes="(max-width: 900px) 100vw, 58vw"
-        />
+      <div className={styles.visual}>
+        <div className={styles.mainImage}>
+          <Image
+            src="/assets/area51/entrance.png"
+            alt="Entrada e recepção reais da Academia Área 51, com equipamentos ao redor"
+            fill
+            quality={88}
+            sizes="(max-width: 900px) 100vw, 40vw"
+          />
+        </div>
+        <div className={styles.caption} aria-hidden="true">
+          <span>Camocim de São Félix</span>
+          <span>Área 51 · rotina real</span>
+        </div>
       </div>
-
-      <div className={styles.detailImage}>
-        <Image
-          src="/assets/area51/bathroom.png"
-          alt="Área de lavatório e espelho da Academia Área 51"
-          fill
-          sizes="(max-width: 900px) 44vw, 18vw"
-        />
-      </div>
-
-      <p className={styles.pullQuote} data-display>
-        Primeiro chama atenção.<br />Depois vira parte do dia.
-      </p>
     </section>
   );
 }
