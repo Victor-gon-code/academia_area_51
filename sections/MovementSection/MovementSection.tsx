@@ -50,9 +50,7 @@ export default function MovementSection() {
 
         media.add("(min-width: 901px)", () => {
           if (reduced) return;
-          gsap.to(trackRef.current, {
-            xPercent: -66.666,
-            ease: "none",
+          const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top top",
@@ -61,6 +59,9 @@ export default function MovementSection() {
               invalidateOnRefresh: true
             }
           });
+
+          tl.to(trackRef.current, { xPercent: -66.666, duration: 1, ease: "none" })
+            .to(trackRef.current, { xPercent: -66.666, duration: 0.3, ease: "none" });
         });
 
       }, sectionRef);
