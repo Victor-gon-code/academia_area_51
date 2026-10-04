@@ -263,12 +263,15 @@
   .ambient { display: none; }
   .visual {
     position: absolute;
-    inset: calc(var(--header-h) + 0.5rem) var(--gutter) auto;
-    width: auto;
+    top: calc(var(--header-h) + 0.5rem);
+    right: auto;
+    left: var(--gutter);
+    width: calc(100% - (2 * var(--gutter)));
     max-width: none;
     min-width: 0;
     height: 59svh;
     aspect-ratio: auto;
+    justify-self: stretch;
   }
   .imageFrame { inset: 0; border-left: 0; border-top: 1px solid rgba(115, 255, 47, 0.52); }
   .imageFrame img { object-position: 50% 30%; }
