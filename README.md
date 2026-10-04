@@ -31,9 +31,11 @@ entrance.avif
 facade.avif
 functional.avif
 interior-main.avif
+interior-alt.avif
 logo.avif
 shop.avif
 weights.avif
+weights-detail.avif
 ```
 
 O pacote preparado durante a implementação contém exatamente essa estrutura. Não renomeie os arquivos sem atualizar as referências no código.
@@ -42,7 +44,9 @@ Mapeamento:
 
 - `facade.avif` — fachada / Hero / encerramento
 - `interior-main.avif` — entrada visual e visão geral interna
+- `interior-alt.avif` — segundo ângulo real da musculação / força
 - `weights.avif` — musculação / força
+- `weights-detail.avif` — segundo recorte real da área de pesos
 - `functional.avif` — funcional / movimento
 - `climb.avif` — escalada / verticalidade
 - `entrance.avif` — recepção / rotina
