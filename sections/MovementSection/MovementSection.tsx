@@ -7,19 +7,19 @@ import styles from "./MovementSection.module.css";
 const moments = [
   {
     word: "PUXAR",
-    image: "/assets/area51/functional.webp",
+    image: "/assets/area51/functional.avif",
     alt: "Argolas e estrutura funcional reais da Academia Área 51",
     position: "48% 35%"
   },
   {
     word: "SUBIR",
-    image: "/assets/area51/climb.webp",
+    image: "/assets/area51/climb.avif",
     alt: "Parede de escalada real da Academia Área 51",
     position: "50% 48%"
   },
   {
     word: "VOLTAR",
-    image: "/assets/area51/weights-alt.webp",
+    image: "/assets/area51/weights.avif",
     alt: "Área real de pesos e equipamentos da Academia Área 51",
     position: "48% 47%"
   }
