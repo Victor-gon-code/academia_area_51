@@ -95,7 +95,7 @@
   letter-spacing: 0.12em;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .section {
     display: flex;
     min-height: 0;
