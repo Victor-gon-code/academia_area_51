@@ -2,6 +2,37 @@
 
 > Documento de continuidade. Se a conversa cair, este arquivo é a fonte de estado operacional para retomar sem mudar a direção aprovada.
 
+## Checkpoint mais recente — continuidade
+
+Último estado confirmado da branch:
+- commit de referência mais recente de implementação: `5f1db3004f4dc3c1217bfdc631c29c092330d9b8`;
+- CI `quality` verde nesse commit;
+- `npm audit --omit=dev --audit-level=high`, QA de contrato, typecheck, lint e build integrados ao CI;
+- ajustes recentes:
+  - menu mobile com focus trap e elementos fechados fora da ordem de tab;
+  - copy dos planos e loja refinada para soar menos genérica e mais humana;
+  - preços mobile protegidos contra overflow;
+  - contato e CTA final reforçados para telas estreitas;
+  - detalhe editorial da Estrutura reposicionado no mobile para não encobrir texto;
+  - seção de Horários deixou de usar grid genérico e passou a usar linguagem orbital/halo ligada à marca;
+  - removido clipping vertical no `main` para não interferir em sticky;
+  - contraste do Hero e Movimento reforçado;
+  - legenda/horário do Hero no mobile movida para área segura;
+  - palavras `PUXAR / SUBIR / VOLTAR` afastadas das bordas para evitar corte em qualquer viewport;
+  - projeto agora referencia os arquivos originais PNG/JPG, sem depender de conversão manual para AVIF;
+  - `npm run check:assets` criado para validar os 11 assets reais;
+  - `npm run qa:contract` criado para proteger narrativa, Three.js somente no Hero, ausência de Lenis/scroll-snap/CNPJ e frases obrigatórias.
+
+O que ainda falta antes de considerar 100% final:
+1. usuário copiar os 11 assets reais para `public/assets/area51/` seguindo `docs/ASSET-INSTALL-MANUAL.md`;
+2. abrir o site com os assets reais e fazer a última inspeção visual de crops e contraste;
+3. conferir scroll real com wheel/trackpad/touch e parar entre as seções para validar ausência de “puxadas”;
+4. revisar visualmente 1366×768, 1440×900, 1920×1080, ultrawide, tablet portrait/landscape, 360×800, 375×812, 390×844 e 412×915;
+5. confirmar que nenhum asset real exige microajuste de `object-position`;
+6. executar `npm run check:assets && npm run typecheck && npm run lint && npm run build` localmente com os arquivos presentes.
+
+Neste ponto, a implementação de código está na reta final. O maior item pendente não é arquitetura nem criação de seção: é a inspeção visual final já com as fotos reais presentes no runtime local.
+
 ## Atualização operacional — 04/10/2026
 
 Estado atual:
