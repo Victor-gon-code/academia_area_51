@@ -4,21 +4,45 @@ import styles from "./SupplementsSection.module.css";
 export default function SupplementsSection() {
   return (
     <section className={styles.section} aria-labelledby="supplements-title">
-      <div className={styles.copy}>
-        <span className="sectionLabel">Dentro da Área 51</span>
-        <h2 id="supplements-title" data-display>Terminou o treino. O resto está logo ali.</h2>
-        <p>Treinou? A loja está no mesmo espaço. Suplementos e itens fitness para quem prefere resolver ali antes de ir embora.</p>
+      <div className={styles.imageWrap}>
+        <div className={styles.image}>
+          <Image
+            src="/assets/area51/shop.png"
+            alt="Loja real integrada ao espaço da Academia Área 51"
+            fill
+            quality={88}
+            sizes="(max-width: 900px) 100vw, 58vw"
+          />
+        </div>
+
+        <div className={styles.imageCaption}>
+          <span>Dentro da própria academia</span>
+          <span>Suplementos + itens fitness</span>
+        </div>
       </div>
 
-      <div className={styles.image}>
-        <Image
-          src="/assets/area51/shop.png"
-          alt="Loja real integrada ao espaço da Academia Área 51"
-          fill
-          quality={84}
-          sizes="(max-width: 900px) 100vw, 46vw"
-        />
+      <div className={styles.copy}>
+        <span className="sectionLabel">Dentro da Área 51</span>
+
+        <p className={styles.kicker}>Saiu do treino? Não precisa ir longe.</p>
+
+        <h2 id="supplements-title" data-display>
+          Treinou.<br />
+          Precisou.<br />
+          <em>Tá ali.</em>
+        </h2>
+
+        <p className={styles.text}>
+          Terminou o treino e lembrou do suplemento? A loja fica no mesmo espaço da Área 51, com suplementos e itens fitness para resolver ali mesmo.
+        </p>
+
+        <div className={styles.note}>
+          <span>LOJA INTEGRADA AO ESPAÇO</span>
+          <span aria-hidden="true">↘</span>
+        </div>
       </div>
+
+      <span className={styles.backWord} aria-hidden="true">ALI</span>
     </section>
   );
 }
