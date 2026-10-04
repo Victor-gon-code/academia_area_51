@@ -262,8 +262,16 @@
     aspect-ratio: auto;
   }
   .imageFrame { inset: 0; border-left: 0; border-top: 1px solid rgba(115, 255, 47, 0.52); }
-  .imageFrame img { object-position: 50% 16%; }
-  .caption { right: 0.55rem; bottom: 0.55rem; }
+  .imageFrame img { object-position: 50% 30%; }
+  .caption {
+    top: 0.65rem;
+    right: 0.55rem;
+    bottom: auto;
+    min-width: 7.7rem;
+    padding: 0.68rem 0.78rem;
+    background: rgba(5, 7, 6, 0.86);
+  }
+  .caption strong { font-size: 1.2rem; }
   .copy { z-index: 6; gap: 0.9rem; }
   .title {
     max-width: 11ch;
