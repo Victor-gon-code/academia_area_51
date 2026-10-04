@@ -52,7 +52,17 @@
   letter-spacing: 0.02em;
 }
 
+.night {
+  opacity: 0;
+  transform: translateY(52px);
+}
+
 .night strong { color: rgba(244, 247, 242, 0.9); }
+
+.schedule {
+  opacity: 0;
+  transform: translateY(28px);
+}
 
 .schedule {
   gap: 0.4rem;
