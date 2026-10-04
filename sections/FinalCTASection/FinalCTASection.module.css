@@ -94,7 +94,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .section { min-height: 118svh; }
   .image img { object-position: 50% 18%; }
   .content {
