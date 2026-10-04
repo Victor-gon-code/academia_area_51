@@ -8,7 +8,7 @@ export default function RoutineSection() {
         <span className="sectionLabel">Rotina real</span>
         <h2 id="routine-title" data-display>O lugar para onde você volta.</h2>
         <p>
-          Depois de algumas idas, você já sabe por onde entrar, onde deixar o ritmo baixar entre uma série e outra e para onde olhar quando chega. É assim que um espaço deixa de ser novidade e começa a fazer parte da rotina.
+          No começo, você repara em tudo. Depois de alguns dias, já sabe onde fica cada coisa, onde recuperar o fôlego e qual caminho faz quando chega. A academia deixa de ser novidade. Entra na rotina.
         </p>
       </div>
 
