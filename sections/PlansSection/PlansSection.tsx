@@ -51,6 +51,11 @@ export default function PlansSection() {
               .to(nav[i - 1], { opacity: 0.28, duration: 0.18 }, at - 0.1)
               .to(nav[i], { opacity: 1, duration: 0.18 }, at - 0.1);
           }
+
+          const finalPlan = plans[plans.length - 1];
+          if (finalPlan) {
+            tl.to(finalPlan, { autoAlpha: 1, y: 0, duration: 0.72, ease: "none" }, ">");
+          }
         });
 
       }, sectionRef);
