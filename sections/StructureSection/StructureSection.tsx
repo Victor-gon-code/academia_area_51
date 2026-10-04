@@ -64,6 +64,11 @@ export default function StructureSection() {
             tl.to(detail, { opacity: 1, x: 0, duration: 0.32, ease: "power2.out" }, 0.95)
               .to(detail, { opacity: 0, x: -24, duration: 0.24, ease: "none" }, 1.7);
           }
+
+          const finalSlide = slides[slides.length - 1];
+          if (finalSlide) {
+            tl.to(finalSlide, { autoAlpha: 1, duration: 0.72, ease: "none" }, ">");
+          }
         });
 
       }, sectionRef);
