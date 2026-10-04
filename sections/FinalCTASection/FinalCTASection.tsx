@@ -43,7 +43,8 @@ export default function FinalCTASection() {
         tl.fromTo(imageRef.current, { scale: 1.08, opacity: 0.78 }, { scale: 1, opacity: 1, duration: 1, ease: "none" }, 0)
           .to(lineOneRef.current, { y: -4, duration: 0.35, ease: "none" }, 0.2)
           .to(lineTwoRef.current, { opacity: 1, y: 0, duration: 0.34, ease: "power2.out" }, 0.42)
-          .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.65);
+          .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.65)
+          .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.32, ease: "none" }, 1);
       }, sectionRef);
     })();
 
