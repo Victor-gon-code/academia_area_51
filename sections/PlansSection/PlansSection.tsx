@@ -67,7 +67,7 @@ export default function PlansSection() {
       <div className={styles.sticky}>
         <header className={styles.header}>
           <span className="sectionLabel">Planos</span>
-          <h2 id="plans-title" data-display>Escolha o tempo que combina com a sua rotina.</h2>
+          <h2 id="plans-title" data-display>Escolha seu tempo.</h2>
         </header>
 
         <div className={styles.planStage}>
@@ -94,7 +94,7 @@ export default function PlansSection() {
       <div className={styles.mobilePlans}>
         <header>
           <span className="sectionLabel">Planos</span>
-          <h2 data-display>Escolha o tempo que cabe na sua rotina.</h2>
+          <h2 data-display>Escolha seu tempo.</h2>
         </header>
         {PLANS.map((plan) => (
           <article key={plan.name}>
