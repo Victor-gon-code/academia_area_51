@@ -1,0 +1,230 @@
+.section {
+  position: relative;
+  min-height: 326svh;
+  background: #020302;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: calc(var(--header-h) + 2rem) var(--gutter) 2.5rem;
+}
+
+.header {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header h2 {
+  max-width: 8ch;
+  font-size: clamp(3.8rem, 7vw, 7rem);
+  font-weight: 700;
+  text-align: right;
+}
+
+.planStage {
+  position: absolute;
+  z-index: 3;
+  inset: 20vh var(--gutter) 12vh;
+}
+
+.plan {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.plan:first-child {
+  visibility: visible;
+  opacity: 1;
+}
+
+.plan > span {
+  color: var(--green-soft);
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.plan strong {
+  margin-top: 0.15em;
+  font-size: clamp(8rem, 23vw, 24rem);
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.72;
+  white-space: nowrap;
+}
+
+.plan p {
+  margin-top: clamp(1.3rem, 2.5vw, 2.2rem);
+  color: rgba(244,247,242,0.68);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+}
+
+.planNav {
+  position: absolute;
+  z-index: 5;
+  right: var(--gutter);
+  bottom: 5.5rem;
+  display: flex;
+  gap: 1.1rem;
+}
+
+.planNav span {
+  color: var(--ink);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cta {
+  position: absolute;
+  z-index: 6;
+  bottom: 2rem;
+  left: var(--gutter);
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 1rem;
+  border: 1px solid var(--green);
+  color: var(--green-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobilePlans { display: none; }
+
+@media (max-width: 760px) {
+  .section { min-height: 0; }
+  .sticky { display: none; }
+  .mobilePlans {
+    display: block;
+    padding: calc(var(--header-h) + 3rem) var(--gutter) 6rem;
+  }
+  .mobilePlans header {
+    display: flex;
+    min-height: 48svh;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    padding-bottom: 2.6rem;
+  }
+  .mobilePlans header h2 {
+    max-width: 7ch;
+    font-size: clamp(4.2rem, 18vw, 6.2rem);
+    font-weight: 700;
+  }
+  .mobilePlans article {
+    display: flex;
+    min-height: 62svh;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .mobilePlans article > span {
+    color: var(--green-soft);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .mobilePlans strong {
+    margin-top: 0.22em;
+    font-size: clamp(6.4rem, 28vw, 9rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+  .mobilePlans article p {
+    margin-top: 1.1rem;
+    color: rgba(244,247,242,0.68);
+    font-size: 0.95rem;
+  }
+  .mobilePlans > a {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 1rem;
+    border: 1px solid var(--green);
+    color: var(--green-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section { min-height: 0; }
+  .sticky { display: none; }
+  .mobilePlans {
+    display: block;
+    padding: calc(var(--header-h) + 3rem) var(--gutter) 6rem;
+  }
+  .mobilePlans header {
+    display: flex;
+    min-height: 42svh;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    padding-bottom: 2.6rem;
+  }
+  .mobilePlans header h2 {
+    max-width: 8ch;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 700;
+  }
+  .mobilePlans article {
+    display: flex;
+    min-height: 58svh;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .mobilePlans article > span {
+    color: var(--green-soft);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .mobilePlans strong {
+    margin-top: 0.22em;
+    font-size: clamp(6rem, 18vw, 13rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+  .mobilePlans article p {
+    margin-top: 1.1rem;
+    color: rgba(244,247,242,0.68);
+  }
+  .mobilePlans > a {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 1rem;
+    border: 1px solid var(--green);
+    color: var(--green-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+}
