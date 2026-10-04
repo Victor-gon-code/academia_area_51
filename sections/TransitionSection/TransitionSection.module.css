@@ -58,7 +58,7 @@
 
 .copy span:last-child { color: var(--green-soft); }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .section { min-height: 112svh; }
   .sticky { position: relative; min-height: 112svh; }
   .facade { opacity: 0.22; transform: scale(1.05); }
