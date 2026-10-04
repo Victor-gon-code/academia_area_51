@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  min-height: 392svh;
+  min-height: 448svh;
   background: var(--bg);
 }
 
