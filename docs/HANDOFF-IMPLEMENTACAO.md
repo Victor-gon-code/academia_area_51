@@ -2,6 +2,30 @@
 
 > Documento de continuidade. Se a conversa cair, este arquivo é a fonte de estado operacional para retomar sem mudar a direção aprovada.
 
+## Atualização operacional — 04/10/2026
+
+Estado atual:
+- branch: `feat/area51-v1`;
+- estrutura visual e narrativa completas;
+- Hero, horários, transição, estrutura, movimento, rotina, planos, loja, contato e encerramento implementados;
+- menu mobile com lock de scroll, Escape e focus trap;
+- Three.js restrito ao halo do Hero e desativado em mobile/reduced motion;
+- layout mobile revisado para evitar preços, CTAs e detalhes sobrepostos;
+- grid genérico da seção de horários substituído por linguagem de órbita/halo da marca;
+- `main` deixou de aplicar clipping vertical para não interferir com sticky;
+- contraste do Hero e Movimento reforçado para preservar legibilidade sobre fotos reais;
+- CI executa audit de dependências, QA do contrato criativo, typecheck, lint e build;
+- assets serão adicionados manualmente pelo usuário usando os arquivos originais, sem conversão obrigatória para AVIF.
+
+Assets esperados agora:
+`logo.jpg`, `facade.png`, `interior-main.png`, `interior-alt.png`, `weights.jpg`, `weights-detail.png`, `functional.png`, `climb.png`, `entrance.png`, `bathroom.png`, `shop.png`.
+
+Mapeamento exato: `docs/ASSET-INSTALL-MANUAL.md`.
+Validação depois de copiar: `npm run check:assets`.
+
+A pasta `public/assets/area51` ainda pode estar ausente da branch, de propósito: não gastar mais tempo transportando binários pelo conector do GitHub. O usuário já aceitou copiar os assets localmente ao puxar para o VS Code.
+
+
 ## 1. Regra de ouro
 
 A implementação deve seguir, nesta ordem de autoridade:
