@@ -281,6 +281,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .sticky {
+    position: relative;
+  }
+
   .secondLine,
   .meta {
     opacity: 1;
