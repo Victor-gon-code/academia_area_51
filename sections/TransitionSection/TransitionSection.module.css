@@ -51,6 +51,8 @@
   flex-direction: column;
   font-size: clamp(4rem, 9vw, 10rem);
   font-weight: 700;
+  opacity: 0;
+  transform: translateY(38px);
   will-change: transform, opacity;
 }
 
@@ -62,5 +64,12 @@
   .facade { opacity: 0.22; transform: scale(1.05); }
   .interior { top: 16svh; right: var(--gutter); bottom: 18svh; left: var(--gutter); clip-path: inset(0); }
   .interior img { object-position: 50% 44%; }
-  .copy { bottom: 2rem; font-size: clamp(3.4rem, 15vw, 5.7rem); }
+  .copy { bottom: 2rem; font-size: clamp(3.4rem, 15vw, 5.7rem); opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy {
+    opacity: 1;
+    transform: none;
+  }
 }
