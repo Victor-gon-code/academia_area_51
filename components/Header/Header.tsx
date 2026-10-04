@@ -84,7 +84,12 @@ export default function Header() {
       <div id="menu-mobile" className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`} aria-hidden={!open}>
         <nav aria-label="Navegação mobile">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              tabIndex={open ? 0 : -1}
+              onClick={() => setOpen(false)}
+            >
               {item.label}
             </a>
           ))}
@@ -93,6 +98,7 @@ export default function Header() {
             href={SITE.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
           >
             Falar no WhatsApp <span aria-hidden="true">↗</span>
