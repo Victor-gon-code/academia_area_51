@@ -36,13 +36,25 @@
   right: -7vw;
   bottom: 0;
   width: min(62vw, 74rem);
-  background:
-    linear-gradient(90deg, #050706 0%, rgba(5, 7, 6, 0.5) 28%, rgba(5, 7, 6, 0.06) 72%),
-    linear-gradient(180deg, rgba(5, 7, 6, 0.4), rgba(5, 7, 6, 0.08) 54%, #050706 100%),
-    url("/assets/area51/facade.png") center 22% / cover no-repeat;
+  overflow: hidden;
   filter: saturate(0.78) contrast(1.04) blur(8px);
   opacity: 0.24;
   transform: scale(1.06);
+}
+
+.facadeEcho img {
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.facadeEcho::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #050706 0%, rgba(5, 7, 6, 0.5) 28%, rgba(5, 7, 6, 0.06) 72%),
+    linear-gradient(180deg, rgba(5, 7, 6, 0.4), rgba(5, 7, 6, 0.08) 54%, #050706 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .sticky::before {
