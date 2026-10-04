@@ -107,6 +107,8 @@ export default function TransitionSection() {
               fill
               quality={88}
               sizes="(max-width: 900px) 92vw, 48vw"
+              loading="eager"
+              fetchPriority="low"
             />
           </div>
           <div className={styles.shade} aria-hidden="true" />
