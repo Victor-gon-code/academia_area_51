@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./HoursSection.module.css";
 
@@ -42,7 +43,8 @@ export default function HoursSection() {
           .to(morningRef.current, { opacity: 0, y: -46, duration: 0.32, ease: "none" }, 0.2)
           .to(nightRef.current, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.35)
           .to(nightRef.current, { opacity: 0, y: -34, duration: 0.22, ease: "none" }, 0.68)
-          .to(scheduleRef.current, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 0.73);
+          .to(scheduleRef.current, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 0.73)
+          .to(scheduleRef.current, { opacity: 1, y: 0, duration: 0.36, ease: "none" }, 1);
       }, sectionRef);
     })();
 
@@ -55,6 +57,14 @@ export default function HoursSection() {
   return (
     <section ref={sectionRef} className={styles.section} aria-label="Horários da Academia Área 51">
       <div className={styles.sticky}>
+        <div className={styles.visualField} aria-hidden="true">
+          <Image src="/assets/area51/facade.png" alt="" fill sizes="52vw" />
+          <span />
+        </div>
+        <div className={styles.sideNote} aria-hidden="true">
+          <span>Camocim de São Félix</span>
+          <span>Seg — Sex · 04h</span>
+        </div>
         <div className={styles.axis} aria-hidden="true"><i ref={axisRef} /></div>
 
         <div ref={morningRef} className={styles.moment}>
