@@ -27,7 +27,7 @@ export default function StructureSection() {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         media = gsap.matchMedia();
 
-        media.add("(min-width: 761px)", () => {
+        media.add("(min-width: 901px)", () => {
           if (reduced) return;
           const slides = gsap.utils.toArray<HTMLElement>("[data-structure-slide]");
           const navItems = gsap.utils.toArray<HTMLElement>("[data-structure-nav]");
