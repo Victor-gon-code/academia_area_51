@@ -12,7 +12,7 @@ export default function HaloScene() {
     if (!host) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const compact = window.matchMedia("(max-width: 760px)").matches;
+    const compact = window.matchMedia("(max-width: 900px)").matches;
     if (reduced || compact) return;
 
     let cancelled = false;
