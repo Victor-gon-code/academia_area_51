@@ -54,11 +54,11 @@ export default function TransitionSection() {
     <section ref={sectionRef} className={styles.section} aria-labelledby="transition-title">
       <div className={styles.sticky}>
         <div ref={facadeRef} className={styles.facade} aria-hidden="true">
-          <Image src="/assets/area51/facade.webp" alt="" fill sizes="100vw" />
+          <Image src="/assets/area51/facade.avif" alt="" fill sizes="100vw" />
         </div>
         <div ref={interiorRef} className={styles.interior}>
           <Image
-            src="/assets/area51/interior-main.webp"
+            src="/assets/area51/interior-main.avif"
             alt="Interior real da Academia Área 51 visto a partir do corredor de equipamentos"
             fill
             sizes="100vw"
