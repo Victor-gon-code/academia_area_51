@@ -77,7 +77,7 @@ export default function MovementSection() {
       <div className={styles.sticky}>
         <div className={styles.kicker}>
           <span className="sectionLabel">Movimento</span>
-          <p id="movement-title">O espaço muda. O corpo acompanha.</p>
+          <h2 id="movement-title">O espaço muda. O corpo acompanha.</h2>
         </div>
         <div ref={trackRef} className={styles.track}>
           {moments.map((moment) => (
@@ -92,7 +92,7 @@ export default function MovementSection() {
                 />
                 <div className={styles.shade} aria-hidden="true" />
               </div>
-              <h2 data-display>{moment.word}</h2>
+              <p className={styles.word} data-display>{moment.word}</p>
             </article>
           ))}
         </div>
