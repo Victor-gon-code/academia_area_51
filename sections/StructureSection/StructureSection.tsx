@@ -97,6 +97,7 @@ export default function StructureSection() {
                   src={chapter.image}
                   alt={chapter.alt}
                   fill
+                  quality={86}
                   sizes="(max-width: 900px) 100vw, 42vw"
                   style={{ objectPosition: chapter.position }}
                 />
@@ -115,7 +116,7 @@ export default function StructureSection() {
         </div>
 
         <div className={styles.forceDetail} data-force-detail aria-hidden="true">
-          <Image src="/assets/area51/interior-alt.png" alt="" fill sizes="18vw" />
+          <Image src="/assets/area51/interior-alt.png" alt="" fill quality={82} sizes="18vw" />
         </div>
 
         <div className={styles.nav} aria-hidden="true">
@@ -137,6 +138,7 @@ export default function StructureSection() {
                 src={chapter.image}
                 alt={chapter.alt}
                 fill
+                quality={86}
                 sizes="100vw"
                 style={{ objectPosition: chapter.position }}
               />
@@ -151,6 +153,7 @@ export default function StructureSection() {
                   src="/assets/area51/interior-alt.png"
                   alt="Outro ângulo real da área de musculação da Academia Área 51"
                   fill
+                  quality={82}
                   sizes="42vw"
                 />
               </div>
