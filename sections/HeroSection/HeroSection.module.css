@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 164svh;
+  min-height: 194svh;
   background: var(--bg);
 }
 
@@ -10,9 +10,9 @@
   display: grid;
   width: 100%;
   min-height: 100svh;
-  grid-template-columns: minmax(0, 0.92fr) minmax(22rem, 1.08fr);
+  grid-template-columns: minmax(0, 0.78fr) minmax(28rem, 1.22fr);
   align-items: center;
-  gap: clamp(2rem, 4vw, 5rem);
+  gap: clamp(1rem, 2.5vw, 3rem);
   padding: calc(var(--header-h) + 2rem) var(--gutter) 2rem;
   overflow: hidden;
   isolation: isolate;
@@ -21,10 +21,27 @@
 .ambient {
   position: absolute;
   z-index: -3;
-  inset: 8% 2% 4% 42%;
+  inset: 4% -2% 0 34%;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(115, 255, 47, 0.12), rgba(115, 255, 47, 0.025) 36%, transparent 69%);
-  filter: blur(24px);
+  background:
+    radial-gradient(circle at 62% 46%, rgba(115, 255, 47, 0.16), rgba(115, 255, 47, 0.035) 34%, transparent 67%);
+  filter: blur(34px);
+  transform: scale(1.08);
+}
+
+.facadeEcho {
+  position: absolute;
+  z-index: -2;
+  top: var(--header-h);
+  right: -7vw;
+  bottom: 0;
+  width: min(62vw, 74rem);
+  background:
+    linear-gradient(90deg, #050706 0%, rgba(5, 7, 6, 0.5) 28%, rgba(5, 7, 6, 0.06) 72%),
+    linear-gradient(180deg, rgba(5, 7, 6, 0.4), rgba(5, 7, 6, 0.08) 54%, #050706 100%),
+    url("/assets/area51/facade.png") center 22% / cover no-repeat;
+  filter: saturate(0.78) contrast(1.04) blur(8px);
+  opacity: 0.24;
   transform: scale(1.06);
 }
 
@@ -32,7 +49,7 @@
   position: absolute;
   z-index: -2;
   inset: 0;
-  background: linear-gradient(90deg, rgba(5, 7, 6, 0.98) 0%, rgba(5, 7, 6, 0.84) 42%, rgba(5, 7, 6, 0.25) 100%);
+  background: linear-gradient(90deg, rgba(5, 7, 6, 0.98) 0%, rgba(5, 7, 6, 0.88) 34%, rgba(5, 7, 6, 0.2) 76%, rgba(5, 7, 6, 0.04) 100%);
   content: "";
 }
 
@@ -40,7 +57,7 @@
   position: relative;
   z-index: 5;
   display: flex;
-  max-width: 48rem;
+  max-width: 44rem;
   flex-direction: column;
   align-items: flex-start;
   gap: clamp(1.25rem, 2vw, 2.2rem);
@@ -139,18 +156,20 @@
   position: relative;
   z-index: 2;
   justify-self: end;
-  height: min(78svh, 48rem);
-  width: auto;
-  max-width: 47vw;
-  aspect-ratio: 0.78;
+  height: min(82svh, 52rem);
+  width: min(53vw, 48rem);
+  max-width: 53vw;
+  aspect-ratio: 0.84;
+  isolation: isolate;
   will-change: transform;
 }
 
 .imageFrame {
   position: absolute;
-  inset: 0 7% 0 13%;
+  z-index: 2;
+  inset: 0 1% 0 4%;
   overflow: hidden;
-  border-left: 1px solid rgba(115, 255, 47, 0.52);
+  border-left: 1px solid rgba(115, 255, 47, 0.46);
   background: #101410;
 }
 
@@ -162,14 +181,16 @@
 .imageShade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.34));
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.14) 48%, rgba(0, 0, 0, 0.48) 100%),
+    linear-gradient(90deg, rgba(5, 7, 6, 0.28), transparent 28%);
 }
 
 .caption {
   position: absolute;
   z-index: 5;
-  right: 1.2rem;
-  bottom: 1.1rem;
+  right: 0.1rem;
+  bottom: 1.35rem;
   display: flex;
   min-width: 9rem;
   flex-direction: column;
@@ -229,8 +250,8 @@
 }
 
 @media (min-width: 1700px) {
-  .sticky { grid-template-columns: minmax(0, 1fr) minmax(32rem, 0.8fr); }
-  .visual { height: min(80svh, 50rem); width: auto; max-width: 40vw; }
+  .sticky { grid-template-columns: minmax(0, 0.82fr) minmax(34rem, 1.18fr); }
+  .visual { height: min(84svh, 55rem); width: min(48vw, 52rem); max-width: 48vw; }
 }
 
 @media (max-width: 980px) {
@@ -239,11 +260,11 @@
     gap: 1rem;
   }
   .title { font-size: clamp(3.7rem, 8vw, 6.4rem); }
-  .visual { height: min(74svh, 39rem); width: auto; max-width: 46vw; }
+  .visual { height: min(76svh, 41rem); width: min(48vw, 38rem); max-width: 48vw; }
 }
 
 @media (max-width: 900px) {
-  .hero { min-height: 148svh; }
+  .hero { min-height: 168svh; }
   .sticky {
     min-height: 100svh;
     grid-template-columns: 1fr;
@@ -261,6 +282,7 @@
     );
   }
   .ambient { display: none; }
+  .facadeEcho { display: none; }
   .visual {
     position: absolute;
     top: calc(var(--header-h) + 0.5rem);
@@ -329,7 +351,7 @@
 }
 
 @media (max-width: 420px) {
-  .hero { min-height: 142svh; }
+  .hero { min-height: 162svh; }
   .visual { height: 56svh; }
   .title { font-size: clamp(3rem, 14.2vw, 4.5rem); }
   .actions { gap: 0.55rem; }
