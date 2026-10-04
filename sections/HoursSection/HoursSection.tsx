@@ -58,7 +58,13 @@ export default function HoursSection() {
     <section ref={sectionRef} className={styles.section} aria-label="Horários da Academia Área 51">
       <div className={styles.sticky}>
         <div className={styles.visualField} aria-hidden="true">
-          <Image src="/assets/area51/facade.png" alt="" fill quality={82} sizes="52vw" />
+          <Image
+            src="/assets/area51/facade.png"
+            alt=""
+            fill
+            quality={90}
+            sizes="(max-width: 900px) 112vw, 52vw"
+          />
           <span />
         </div>
         <div className={styles.sideNote} aria-hidden="true">
