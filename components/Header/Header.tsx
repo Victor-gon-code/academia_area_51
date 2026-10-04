@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "@/lib/site";
 import styles from "./Header.module.css";
@@ -122,6 +123,16 @@ export default function Header() {
         className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
         aria-hidden={!open}
       >
+        <Image
+          className={styles.menuBackground}
+          src="/assets/area51/interior-main.png"
+          alt=""
+          fill
+          quality={80}
+          sizes="100vw"
+          loading="lazy"
+        />
+
         <div className={styles.menuBackdrop} aria-hidden="true">
           <span>51</span>
         </div>
