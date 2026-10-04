@@ -25,8 +25,7 @@
   z-index: 1;
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(115,255,47,0.055), transparent 34%);
+  background: radial-gradient(circle at 50% 45%, rgba(115,255,47,0.055), transparent 34%);
   will-change: transform, opacity;
 }
 
@@ -56,8 +55,7 @@
   width: min(37vw, 31rem);
   height: min(82svh, 53rem);
   overflow: hidden;
-  border-top: 1px solid rgba(115,255,47,0.42);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.3rem;
   box-shadow: 0 26px 90px rgba(0,0,0,0.46);
 }
 
@@ -93,7 +91,7 @@
   width: min(48vw, 43rem);
   height: min(82svh, 53rem);
   overflow: hidden;
-  border-left: 1px solid rgba(115,255,47,0.44);
+  border-radius: 0.3rem;
   box-shadow: 0 28px 96px rgba(0,0,0,0.5);
 }
 
@@ -139,64 +137,97 @@
 
 @media (max-width: 900px) {
   .section {
-    min-height: 0;
+    min-height: 248svh;
   }
 
   .sticky {
-    position: relative;
-    min-height: 0;
-    overflow: visible;
-    background: #020302;
+    min-height: 100svh;
+    background:
+      radial-gradient(circle at 50% 35%, rgba(115,255,47,0.075), transparent 30%),
+      linear-gradient(180deg, #061008 0%, #020302 100%);
   }
 
   .facade,
   .interior {
-    position: relative;
-    inset: auto;
-    display: grid;
-    visibility: visible;
-    min-height: 92svh;
-    place-items: center;
-    opacity: 1;
-    transform: none;
+    position: absolute;
+    inset: 0;
+    min-height: 100svh;
   }
 
   .facade {
-    padding: calc(var(--header-h) + 2rem) var(--gutter) 4rem;
+    padding:
+      calc(var(--header-h) + 1.4rem)
+      var(--gutter)
+      max(2rem, env(safe-area-inset-bottom));
   }
 
   .stageLabel {
     top: calc(var(--header-h) + 1rem);
+    left: var(--gutter);
+    font-size: 0.56rem;
   }
 
-  .facadeFrame {
-    width: min(84vw, 25rem);
-    height: 72svh;
+  .facadeFrame,
+  .interiorFrame {
+    width: calc(100vw - (2 * var(--gutter)));
+    max-width: 34rem;
+    height: min(68svh, 38rem);
+    margin-top: 0.9rem;
+    border-radius: 1rem;
+  }
+
+  .facadeFrame img {
+    object-position: 50% 18%;
   }
 
   .interior {
-    min-height: 96svh;
-    padding: 3rem var(--gutter) 10rem;
-    clip-path: none !important;
+    padding:
+      calc(var(--header-h) + 1rem)
+      var(--gutter)
+      max(2rem, env(safe-area-inset-bottom));
   }
 
-  .interiorFrame {
-    width: min(88vw, 28rem);
-    height: 72svh;
+  .interiorFrame img {
+    object-position: 50% 44%;
   }
 
   .shade {
-    background: linear-gradient(180deg, rgba(2,3,2,0.06) 36%, rgba(2,3,2,0.78) 100%);
+    background:
+      linear-gradient(180deg, rgba(2,3,2,0.04) 26%, rgba(2,3,2,0.34) 58%, rgba(2,3,2,0.92) 100%);
   }
 
   .copy {
     right: var(--gutter);
-    bottom: max(2rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+    bottom: max(2.1rem, calc(env(safe-area-inset-bottom) + 0.65rem));
     left: var(--gutter);
-    max-width: 9.5ch;
-    font-size: clamp(3.4rem, 14vw, 5.5rem);
-    opacity: 1;
-    transform: none;
+    max-width: 9.8ch;
+    font-size: clamp(3rem, 11.6vw, 4.5rem);
+    line-height: 0.88;
+    transform: translateY(24px);
+  }
+}
+
+@media (max-width: 420px) {
+  .facadeFrame,
+  .interiorFrame {
+    height: 64svh;
+  }
+
+  .copy {
+    max-width: 10ch;
+    font-size: clamp(2.75rem, 11.7vw, 3.75rem);
+  }
+}
+
+@media (max-width: 900px) and (max-height: 690px) {
+  .facadeFrame,
+  .interiorFrame {
+    height: 61svh;
+  }
+
+  .copy {
+    bottom: 1.3rem;
+    font-size: clamp(2.45rem, 8.2vh, 3.6rem);
   }
 }
 
@@ -207,11 +238,14 @@
 
   .sticky {
     position: relative;
+    min-height: 100svh;
   }
 
   .facade,
   .interior {
+    position: relative;
     visibility: visible;
+    min-height: 82svh;
     opacity: 1;
     transform: none;
   }
@@ -221,6 +255,13 @@
   }
 
   .copy {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    max-width: 10ch;
+    margin: -11rem var(--gutter) 0;
+    padding-bottom: 4rem;
     opacity: 1;
     transform: none;
   }
