@@ -23,6 +23,7 @@ export default function TransitionSection() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       if (cancelled || !sectionRef.current) return;
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
 
       ctx = gsap.context(() => {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
