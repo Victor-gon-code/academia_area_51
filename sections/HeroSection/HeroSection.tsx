@@ -98,7 +98,7 @@ export default function HeroSection() {
         </div>
 
         <div className={styles.scrollCue} aria-hidden="true">
-          <span>Role</span>
+          <span>Continue</span>
           <i />
         </div>
       </div>
