@@ -15,10 +15,18 @@ export default function Header() {
 
   useEffect(() => {
     if (!open) return;
+
     const previous = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
     document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
     return () => {
       document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
 
@@ -50,6 +58,7 @@ export default function Header() {
           className={styles.menuButton}
           aria-expanded={open}
           aria-controls="menu-mobile"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           onClick={() => setOpen((value) => !value)}
         >
           <span className={styles.menuText}>{open ? "Fechar" : "Menu"}</span>
