@@ -58,7 +58,7 @@ export default function HoursSection() {
 
         <div ref={morningRef} className={styles.moment}>
           <strong data-display>04:00</strong>
-          <p>A academia abre.</p>
+          <p>De segunda a sexta, a academia abre.</p>
         </div>
 
         <div ref={nightRef} className={`${styles.moment} ${styles.night}`}>
