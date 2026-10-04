@@ -67,13 +67,13 @@ export default function PlansSection() {
       <div className={styles.sticky}>
         <header className={styles.header}>
           <span className="sectionLabel">Planos</span>
-          <h2 id="plans-title" data-display>Escolha seu tempo.</h2>
+          <h2 data-display>Escolha seu tempo.</h2>
         </header>
 
         <div className={styles.planStage}>
           {PLANS.map((plan) => (
             <article key={plan.name} data-plan className={styles.plan}>
-              <span>{plan.name}</span>
+              <h3>{plan.name}</h3>
               <strong data-display>{plan.price}</strong>
               <p>{plan.copy}</p>
             </article>
@@ -98,7 +98,7 @@ export default function PlansSection() {
         </header>
         {PLANS.map((plan) => (
           <article key={plan.name}>
-            <span>{plan.name}</span>
+            <h3>{plan.name}</h3>
             <strong data-display>{plan.price}</strong>
             <p>{plan.copy}</p>
           </article>
