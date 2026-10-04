@@ -45,9 +45,10 @@ export default function HeroSection() {
           }
         });
 
-        tl.to(frameRef.current, { scale: 1.045, yPercent: -1.6, ease: "none", duration: 1 }, 0)
+        tl.to(frameRef.current, { scale: 1.035, yPercent: -1.2, ease: "none", duration: 1 }, 0)
           .to(secondRef.current, { opacity: 1, y: 0, ease: "power2.out", duration: 0.5 }, 0.12)
-          .to(metaRef.current, { opacity: 1, y: 0, ease: "power2.out", duration: 0.38 }, 0.34);
+          .to(metaRef.current, { opacity: 1, y: 0, ease: "power2.out", duration: 0.38 }, 0.34)
+          .to(metaRef.current, { opacity: 1, y: 0, duration: 0.34, ease: "none" }, 1);
       }, sectionRef);
     })();
 
@@ -61,6 +62,7 @@ export default function HeroSection() {
     <section id="topo" ref={sectionRef} className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.sticky}>
         <div className={styles.ambient} aria-hidden="true" />
+        <div className={styles.facadeEcho} aria-hidden="true" />
 
         <div className={styles.copy}>
           <span className="sectionLabel">Camocim de São Félix</span>
