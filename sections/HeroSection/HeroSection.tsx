@@ -71,7 +71,16 @@ export default function HeroSection() {
     >
       <div className={styles.sticky}>
         <div className={styles.ambient} aria-hidden="true" />
-        <div className={styles.facadeEcho} aria-hidden="true" />
+        <div className={styles.facadeEcho} aria-hidden="true">
+          <Image
+            src="/assets/area51/facade.png"
+            alt=""
+            fill
+            quality={72}
+            sizes="62vw"
+            loading="lazy"
+          />
+        </div>
 
         <div className={styles.copy}>
           <span className={`sectionLabel ${styles.heroLabel}`}>Camocim de São Félix</span>
