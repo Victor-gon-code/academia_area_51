@@ -34,7 +34,7 @@ const securityHeaders = [
   { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
   { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
   ...(isProduction
-    ? [{ key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" }]
+    ? [{ key: "Strict-Transport-Security", value: "max-age=31536000" }]
     : [])
 ];
 
