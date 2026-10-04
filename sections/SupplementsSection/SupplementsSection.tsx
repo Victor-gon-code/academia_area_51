@@ -11,7 +11,7 @@ export default function SupplementsSection() {
             alt="Loja real integrada ao espaço da Academia Área 51"
             fill
             quality={88}
-            sizes="(max-width: 900px) 100vw, 58vw"
+            sizes="(max-width: 900px) 92vw, 58vw"
           />
         </div>
 
