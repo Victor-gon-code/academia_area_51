@@ -59,9 +59,7 @@ export default function HeroSection() {
   return (
     <section id="topo" ref={sectionRef} className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.sticky}>
-        <div className={styles.ambient} aria-hidden="true">
-          <Image src="/assets/area51/facade.avif" alt="" fill priority sizes="100vw" />
-        </div>
+        <div className={styles.ambient} aria-hidden="true" />
 
         <div className={styles.copy}>
           <span className="sectionLabel">Camocim de São Félix</span>
@@ -88,7 +86,7 @@ export default function HeroSection() {
               alt="Fachada real da Academia Área 51 iluminada à noite"
               fill
               priority
-              sizes="(max-width: 760px) 92vw, 52vw"
+              sizes="(max-width: 900px) 92vw, 52vw"
             />
             <div className={styles.imageShade} aria-hidden="true" />
           </div>
