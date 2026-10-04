@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   applicationName: "Academia Área 51",
   authors: [{ name: "Academia Área 51" }],
   robots: { index: true, follow: true },
+  formatDetection: { telephone: false },
+  icons: {
+    icon: [{ url: "/assets/area51/logo.jpg", type: "image/jpeg" }]
+  },
   openGraph: {
     title: "Academia Área 51",
     description: "A cidade ainda dorme. A Área 51 já está em movimento.",
