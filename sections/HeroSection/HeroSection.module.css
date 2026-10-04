@@ -237,7 +237,7 @@
   .visual { width: 48vw; min-width: 20rem; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .hero { min-height: 148svh; }
   .sticky {
     min-height: 100svh;
