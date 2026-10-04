@@ -104,7 +104,7 @@ export default function StructureSection() {
         </div>
 
         <div className={styles.forceDetail} data-force-detail aria-hidden="true">
-          <Image src="/assets/area51/interior-strength.webp" alt="" fill sizes="18vw" />
+          <Image src="/assets/area51/weights.avif" alt="" fill sizes="18vw" />
         </div>
 
         <div className={styles.nav} aria-hidden="true">
@@ -137,7 +137,7 @@ export default function StructureSection() {
             {index === 1 ? (
               <div className={styles.mobileDetail}>
                 <Image
-                  src="/assets/area51/interior-strength.webp"
+                  src="/assets/area51/weights.avif"
                   alt="Outro ângulo real da área de musculação da Academia Área 51"
                   fill
                   sizes="42vw"
