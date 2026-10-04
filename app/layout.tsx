@@ -6,14 +6,13 @@ import "./globals.css";
 const display = Barlow_Condensed({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["500", "600", "700", "800", "900"],
+  weight: ["600", "800"],
   display: "swap"
 });
 
 const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600"],
   display: "swap"
 });
 
