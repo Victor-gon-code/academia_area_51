@@ -8,12 +8,13 @@
 .image {
   position: absolute;
   inset: 0;
-  will-change: transform, filter;
+  will-change: transform, opacity;
 }
 
 .image img {
   object-fit: cover;
   object-position: 50% 20%;
+  filter: brightness(0.6);
 }
 
 .shade {
