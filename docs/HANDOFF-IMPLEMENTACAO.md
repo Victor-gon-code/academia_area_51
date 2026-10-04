@@ -1,5 +1,38 @@
 # HANDOFF — Implementação Academia Área 51
 
+## Rodada de ajustes visuais — Hero, Intro e Horários
+
+Ajustes feitos após inspeção visual no localhost:
+
+- Intro reconstruída sem o logo circular/anel decorativo. Agora usa wordmark tipográfico, sinal linear e luz verde muito discreta.
+- Header teve o marcador circular removido; ficou apenas uma assinatura linear pequena e mais limpa.
+- Hero recomposta para reduzir o vazio central:
+  - foto da fachada aumentada;
+  - bloco visual mais presente;
+  - eco desfocado da própria fachada usado como atmosfera;
+  - glow verde mais sutil;
+  - halo 3D movido para trás da fotografia e muito menos visível;
+  - badge de horário reposicionado;
+  - último estado ganhou hold de leitura antes da próxima seção.
+- Seção 04:00 deixou de ser um fundo preto com número isolado:
+  - fachada real aparece como camada editorial escurecida;
+  - composição passou a ser assimétrica e mais cinematográfica;
+  - linhas orbitais permanecem discretas;
+  - microinformação factual no topo direito;
+  - último estado de horários ganhou hold antes da próxima seção.
+- Foi aplicada a regra de “respiro final” nas experiências baseadas em scroll:
+  - Hero;
+  - Horários;
+  - transição fachada → interior;
+  - Estrutura;
+  - Movimento;
+  - Planos;
+  - CTA final.
+- As alturas dessas experiências foram aumentadas somente o necessário para permitir leitura do estado final, sem usar scroll-snap.
+
+Branch de trabalho: `feat/area51-v1`.
+
+
 ## Auditoria adicional concluída
 
 Nova revisão completa realizada após o primeiro fechamento.
