@@ -10,8 +10,7 @@
   justify-content: space-between;
   padding: 0 var(--gutter);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(5, 7, 6, 0.72);
-  backdrop-filter: blur(14px);
+  background: rgba(5, 7, 6, 0.96);
 }
 
 .brand {
@@ -26,11 +25,20 @@
 }
 
 .brandMark {
+  position: relative;
   width: 0.62rem;
   height: 0.62rem;
   border: 1px solid var(--green);
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgba(115, 255, 47, 0.06);
+}
+
+.brandMark::after {
+  position: absolute;
+  inset: -0.35rem;
+  border: 1px solid rgba(115, 255, 47, 0.18);
+  border-radius: 50%;
+  content: "";
 }
 
 .desktopNav {
@@ -134,6 +142,8 @@
   flex-direction: column;
   justify-content: space-between;
   padding: calc(var(--header-h) + 3.5rem) var(--gutter) max(2rem, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: #060906;
   visibility: hidden;
   opacity: 0;
@@ -154,6 +164,10 @@
   letter-spacing: -0.03em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.mobileMenu nav > a:not(.mobileWhatsapp) + a:not(.mobileWhatsapp) {
+  margin-top: 0.18em;
 }
 
 .mobileWhatsapp {
@@ -187,4 +201,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@media (max-width: 900px) and (max-height: 680px) {
+  .mobileMenu { padding-top: calc(var(--header-h) + 2rem); }
+  .mobileMenu nav > a:not(.mobileWhatsapp) { font-size: clamp(2.2rem, 9vh, 3.4rem); }
+  .mobileWhatsapp { margin-top: 1.3rem; }
 }
