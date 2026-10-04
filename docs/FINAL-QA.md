@@ -118,3 +118,35 @@ Não alterar a direção artística para resolver crop: ajustar somente `object-
 ## Critério de entrega
 
 A branch está estruturalmente concluída quando o CI do HEAD estiver verde. A única etapa externa ao GitHub é copiar os assets reais e fazer a conferência visual final já com esses arquivos locais.
+
+## Auditoria adicional — 04/10/2026
+
+Foi feita uma nova revisão após o primeiro fechamento, procurando especificamente coisas visualmente estranhas, informação que não deveria estar publicada, conflitos de responsividade, vazamento entre seções, acessibilidade e custos desnecessários de animação.
+
+Correções encontradas e aplicadas:
+- header passou a ser totalmente opaco para impedir que conteúdo grande de seções em transição apareça “fantasma” por trás da navegação;
+- corrigido um offset da pull quote de Rotina que, depois do ajuste desktop, ainda podia herdar `top: 58%` no mobile;
+- fechamento deixou de animar `filter: brightness()` em imagem full-screen; brilho ficou estático e o motion passou a usar propriedades mais baratas;
+- Three.js agora é desativado também em dispositivos com ponteiro coarse e com Data Saver, mantendo o fallback visual;
+- `ScrollTrigger.config({ ignoreMobileResize: true })` foi aplicado nas experiências de scroll para reduzir saltos causados pela barra do navegador em dispositivos touch;
+- header, skip link, palavras do Movimento, linha de progresso de Horários e copy da transição passaram a respeitar safe areas/notches/home indicators;
+- menu mobile agora inclui o botão visível de fechar dentro do ciclo de foco;
+- planos ganharam headings semânticos por opção;
+- landmark de Estrutura e Planos permanece nomeado corretamente tanto no desktop quanto no layout alternativo mobile;
+- seção da loja foi reordenada semanticamente para o heading vir antes da imagem sem alterar a composição visual;
+- fachada repetida no encerramento foi marcada como decorativa para leitores de tela;
+- removida a expressão “No caminho de saída”, que poderia sugerir uma localização física da loja não confirmada;
+- alt texts da fachada foram deixados estritamente factuais;
+- horário de 04h passou a deixar explícito que se refere a segunda a sexta;
+- copy de Rotina foi ajustada para soar mais natural;
+- favicon passa a reutilizar o logo real e foi desativada a estilização automática de telefone no mobile;
+- HSTS foi mantido, mas sem `includeSubDomains/preload` porque o domínio final do cliente e todos os seus subdomínios ainda não foram confirmados.
+
+Resultado:
+- nenhuma dessas correções exigiu mudar a direção criativa;
+- nenhuma nova biblioteca foi adicionada;
+- a narrativa aprovada permanece intacta;
+- a última pipeline `quality` continuou verde após as correções.
+
+HEAD auditado: `5001293f7e2a8e7cdfdb743d017cdc574f75a493`.
+
