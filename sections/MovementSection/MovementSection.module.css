@@ -60,7 +60,7 @@
 .shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.46));
+  background: linear-gradient(180deg, rgba(0,0,0,0.04) 28%, rgba(0,0,0,0.72) 100%);
 }
 
 .panel h2 {
