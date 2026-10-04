@@ -1,0 +1,143 @@
+.section {
+  position: relative;
+  min-height: 248svh;
+  background: #030503;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.kicker {
+  position: absolute;
+  z-index: 6;
+  top: calc(var(--header-h) + 1.2rem);
+  right: var(--gutter);
+  left: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.kicker p {
+  color: rgba(244,247,242,0.52);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.track {
+  display: flex;
+  width: 300vw;
+  min-height: 100svh;
+  will-change: transform;
+}
+
+.panel {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  flex: 0 0 100vw;
+  overflow: hidden;
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 13vh 8vw 8vh 8vw;
+  overflow: hidden;
+}
+
+.imageWrap img {
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.04);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.46));
+}
+
+.panel h2 {
+  position: absolute;
+  z-index: 3;
+  right: 5vw;
+  bottom: 2.5vh;
+  font-size: clamp(8rem, 22vw, 25rem);
+  font-weight: 800;
+  color: rgba(244,247,242,0.94);
+  text-shadow: 0 10px 40px rgba(0,0,0,0.45);
+}
+
+.panel:nth-child(2) h2 { color: var(--green-soft); }
+
+@media (max-width: 760px) {
+  .section { min-height: 0; }
+  .sticky { position: relative; min-height: 0; overflow: visible; }
+  .kicker {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: calc(var(--header-h) + 2rem) var(--gutter) 2.2rem;
+  }
+  .track {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    transform: none !important;
+  }
+  .panel {
+    width: 100%;
+    min-height: 76svh;
+    flex: none;
+    padding: 0 var(--gutter) 2rem;
+  }
+  .imageWrap {
+    inset: 0 var(--gutter) 4rem;
+  }
+  .panel h2 {
+    right: var(--gutter);
+    bottom: 0.6rem;
+    left: var(--gutter);
+    font-size: clamp(5.8rem, 25vw, 8.7rem);
+    line-height: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section { min-height: 0; }
+  .sticky { position: relative; min-height: 0; overflow: visible; }
+  .kicker {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    padding: calc(var(--header-h) + 2rem) var(--gutter) 2rem;
+  }
+  .track {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    transform: none !important;
+  }
+  .panel {
+    width: 100%;
+    min-height: 78svh;
+    flex: none;
+  }
+  .imageWrap { inset: 0 var(--gutter) 4rem; }
+  .panel h2 {
+    right: var(--gutter);
+    bottom: 0.5rem;
+    left: var(--gutter);
+    font-size: clamp(5rem, 18vw, 12rem);
+  }
+}
