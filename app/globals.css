@@ -9,7 +9,7 @@
   --green-soft: #9bff6f;
   --line: rgba(255, 255, 255, 0.12);
   --header-h: 76px;
-  --gutter: clamp(1.15rem, 3vw, 3.75rem);
+  --gutter: max(clamp(1.15rem, 3vw, 3.75rem), env(safe-area-inset-left), env(safe-area-inset-right));
   --radius-sm: 0.45rem;
   --radius-md: 1.15rem;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -30,7 +30,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
   overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
@@ -143,7 +142,7 @@ main {
 @media (max-width: 760px) {
   :root {
     --header-h: 64px;
-    --gutter: 1.15rem;
+    --gutter: max(1.15rem, env(safe-area-inset-left), env(safe-area-inset-right));
   }
 
   html {
@@ -153,7 +152,7 @@ main {
 
 @media (max-width: 420px) {
   :root {
-    --gutter: 1rem;
+    --gutter: max(1rem, env(safe-area-inset-left), env(safe-area-inset-right));
   }
 }
 
