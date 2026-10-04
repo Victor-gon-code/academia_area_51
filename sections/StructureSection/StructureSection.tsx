@@ -61,23 +61,49 @@ export default function StructureSection() {
             }
           });
 
-          const step = mobile ? 1.08 : 1;
+          const step = mobile ? 1.08 : 1.55;
 
           for (let i = 1; i < slides.length; i += 1) {
             const at = i * step;
 
             tl.to(
               slides[i - 1],
-              { autoAlpha: 0, y: mobile ? -14 : 0, duration: 0.28, ease: "none" },
-              at - 0.2
+              {
+                autoAlpha: 0,
+                y: mobile ? -14 : 0,
+                duration: mobile ? 0.28 : 0.22,
+                ease: "none"
+              },
+              at - (mobile ? 0.2 : 0.22)
             )
               .to(
                 slides[i],
-                { autoAlpha: 1, y: 0, duration: 0.38, ease: "power2.inOut" },
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: mobile ? 0.38 : 0.26,
+                  ease: "power2.inOut"
+                },
+                at
+              )
+              .to(
+                navItems[i - 1],
+                { opacity: 0.28, duration: 0.18 },
                 at - 0.08
               )
-              .to(navItems[i - 1], { opacity: 0.28, duration: 0.18 }, at - 0.1)
-              .to(navItems[i], { opacity: 1, duration: 0.18 }, at - 0.1);
+              .to(
+                navItems[i],
+                { opacity: 1, duration: 0.18 },
+                at
+              );
+
+            if (!mobile) {
+              tl.to(
+                slides[i],
+                { autoAlpha: 1, y: 0, duration: 0.62, ease: "none" },
+                at + 0.26
+              );
+            }
           }
 
           if (detail && !mobile) {
