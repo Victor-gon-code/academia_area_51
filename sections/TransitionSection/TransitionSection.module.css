@@ -1,0 +1,66 @@
+.section {
+  position: relative;
+  min-height: 148svh;
+  background: #020302;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.facade,
+.interior {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity, clip-path;
+}
+
+.facade img {
+  object-fit: cover;
+  object-position: 50% 22%;
+  filter: brightness(0.52) saturate(0.82);
+}
+
+.interior {
+  z-index: 2;
+  background: #080b08;
+}
+
+.interior img {
+  object-fit: cover;
+  object-position: 50% 48%;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 6, 4, 0.06), rgba(4, 6, 4, 0.78));
+}
+
+.copy {
+  position: absolute;
+  z-index: 5;
+  right: var(--gutter);
+  bottom: clamp(2rem, 6vw, 5rem);
+  left: var(--gutter);
+  display: flex;
+  max-width: 12ch;
+  flex-direction: column;
+  font-size: clamp(4rem, 9vw, 10rem);
+  font-weight: 700;
+  will-change: transform, opacity;
+}
+
+.copy span:last-child { color: var(--green-soft); }
+
+@media (max-width: 760px) {
+  .section { min-height: 112svh; }
+  .sticky { position: relative; min-height: 112svh; }
+  .facade { opacity: 0.22; transform: scale(1.05); }
+  .interior { top: 16svh; right: var(--gutter); bottom: 18svh; left: var(--gutter); clip-path: inset(0); }
+  .interior img { object-position: 50% 44%; }
+  .copy { bottom: 2rem; font-size: clamp(3.4rem, 15vw, 5.7rem); }
+}
