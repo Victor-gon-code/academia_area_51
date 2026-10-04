@@ -86,7 +86,10 @@ export default function Header() {
             Falar no WhatsApp <span aria-hidden="true">↗</span>
           </a>
         </nav>
-        <p>{SITE.city}</p>
+        <div className={styles.mobileMeta}>
+          <span>{SITE.city}</span>
+          <span>{SITE.hours.weekdays} · {SITE.hours.weekend}</span>
+        </div>
       </div>
     </>
   );
