@@ -69,7 +69,7 @@ export default function HeroSection() {
           </h1>
 
           <div ref={metaRef} className={styles.meta}>
-            <p>Enquanto muita gente ainda está acordando, aqui a primeira série já começou. A Área 51 abre cedo, fecha tarde e tem um jeito próprio de fazer parte do dia.</p>
+            <p>Quando a cidade ainda está no escuro, aqui a primeira série já começou. A Área 51 abre cedo, fecha tarde e deixa o treino caber no seu dia — não o contrário.</p>
             <div className={styles.actions}>
               <a className={styles.primary} href="#estrutura">Ver a Área 51 por dentro</a>
               <a className={styles.secondary} href={SITE.whatsappHref} target="_blank" rel="noopener noreferrer">
