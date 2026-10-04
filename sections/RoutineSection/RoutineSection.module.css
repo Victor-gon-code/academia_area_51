@@ -95,6 +95,7 @@
   }
   .pullQuote {
     position: relative;
+    top: auto;
     right: auto;
     bottom: auto;
     align-self: flex-start;
