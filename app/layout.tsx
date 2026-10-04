@@ -25,7 +25,13 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   formatDetection: { telephone: false },
   icons: {
-    icon: [{ url: "/assets/area51/logo.jpg", type: "image/jpeg" }]
+    icon: [
+      { url: "/assets/area51/logo.jpg", type: "image/jpeg" }
+    ],
+    shortcut: ["/assets/area51/logo.jpg"],
+    apple: [
+      { url: "/assets/area51/logo.jpg", type: "image/jpeg" }
+    ]
   },
   openGraph: {
     title: "Academia Área 51",
