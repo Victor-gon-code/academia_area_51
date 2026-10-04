@@ -8,7 +8,7 @@ export default function RoutineSection() {
         <span className="sectionLabel">Rotina real</span>
         <h2 id="routine-title" data-display>O lugar para onde você volta.</h2>
         <p>
-          Treino forte também precisa de um espaço que faça parte da rotina. A estrutura chama atenção; o ambiente é o que acompanha o dia a dia.
+          Depois de algumas idas, você já sabe por onde entrar, onde deixar o ritmo baixar entre uma série e outra e para onde olhar quando chega. É assim que um espaço deixa de ser novidade e começa a fazer parte da rotina.
         </p>
       </div>
 
@@ -31,7 +31,7 @@ export default function RoutineSection() {
       </div>
 
       <p className={styles.pullQuote} data-display>
-        Você entra pela estrutura.<br />O ambiente faz querer voltar.
+        Primeiro chama atenção.<br />Depois vira parte do dia.
       </p>
     </section>
   );
