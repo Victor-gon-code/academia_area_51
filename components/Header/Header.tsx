@@ -30,11 +30,23 @@ export default function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const closeOnDesktop = (event: MediaQueryListEvent | MediaQueryList) => {
+      if (event.matches) setOpen(false);
+    };
+
+    closeOnDesktop(desktop);
+    desktop.addEventListener("change", closeOnDesktop);
+
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   return (
     <>
       <a className="skipLink" href="#conteudo">Pular para o conteúdo</a>
       <header className={styles.header}>
-        <a className={styles.brand} href="#topo" aria-label="Academia Área 51 — início">
+        <a className={styles.brand} href="#topo" aria-label="Academia Área 51 — início" onClick={() => setOpen(false)}>
           <span className={styles.brandMark} aria-hidden="true" />
           <span>ÁREA 51</span>
         </a>
