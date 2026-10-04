@@ -77,7 +77,7 @@ export default function MovementSection() {
       <div className={styles.sticky}>
         <div className={styles.kicker}>
           <span className="sectionLabel">Movimento</span>
-          <p id="movement-title">O espaço muda. A rotina continua.</p>
+          <p id="movement-title">O corpo muda de tarefa. O treino não perde o ritmo.</p>
         </div>
         <div ref={trackRef} className={styles.track}>
           {moments.map((moment) => (
