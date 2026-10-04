@@ -39,7 +39,7 @@ export default function FinalCTASection() {
           }
         });
 
-        tl.fromTo(imageRef.current, { scale: 1.08, filter: "brightness(0.34)" }, { scale: 1, filter: "brightness(0.58)", duration: 1, ease: "none" }, 0)
+        tl.fromTo(imageRef.current, { scale: 1.08, opacity: 0.78 }, { scale: 1, opacity: 1, duration: 1, ease: "none" }, 0)
           .to(lineOneRef.current, { y: -4, duration: 0.35, ease: "none" }, 0.2)
           .to(lineTwoRef.current, { opacity: 1, y: 0, duration: 0.34, ease: "power2.out" }, 0.42)
           .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.65);
@@ -55,7 +55,7 @@ export default function FinalCTASection() {
   return (
     <section ref={sectionRef} className={styles.section} aria-labelledby="final-title">
       <div ref={imageRef} className={styles.image}>
-        <Image src="/assets/area51/facade.png" alt="Fachada iluminada da Academia Área 51" fill sizes="100vw" />
+        <Image src="/assets/area51/facade.png" alt="Fachada real da Academia Área 51 com o letreiro da marca" fill sizes="100vw" />
       </div>
       <div className={styles.shade} aria-hidden="true" />
       <div className={styles.content}>
