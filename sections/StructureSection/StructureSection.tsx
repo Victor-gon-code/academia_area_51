@@ -34,12 +34,12 @@ export default function StructureSection() {
 
           const slides = gsap.utils.toArray<HTMLElement>("[data-structure-slide]");
           const navItems = gsap.utils.toArray<HTMLElement>("[data-structure-nav]");
-          const detail = stageRef.current?.querySelector<HTMLElement>("[data-force-detail]");
 
           slides.forEach((slide, index) => {
             gsap.set(slide, {
               autoAlpha: index === 0 ? 1 : 0,
-              y: mobile && index !== 0 ? 16 : 0
+              y: 0,
+              zIndex: slides.length - index
             });
           });
 
@@ -47,73 +47,62 @@ export default function StructureSection() {
             gsap.set(item, { opacity: index === 0 ? 1 : 0.28 });
           });
 
-          if (detail) {
-            gsap.set(detail, { opacity: 0, x: mobile ? 0 : 40 });
-          }
-
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top top",
               end: "bottom bottom",
-              scrub: mobile ? 0.58 : 0.65,
+              scrub: mobile ? 0.55 : 0.62,
               invalidateOnRefresh: true
             }
           });
 
-          const step = mobile ? 1.08 : 1.55;
+          const hold = mobile ? 0.72 : 0.95;
+          const outDuration = mobile ? 0.16 : 0.18;
+          const inDuration = mobile ? 0.22 : 0.24;
+
+          tl.to(slides[0], { autoAlpha: 1, duration: hold, ease: "none" });
 
           for (let i = 1; i < slides.length; i += 1) {
-            const at = i * step;
+            const previous = slides[i - 1];
+            const current = slides[i];
+            const previousNav = navItems[i - 1];
+            const currentNav = navItems[i];
 
-            tl.to(
-              slides[i - 1],
-              {
-                autoAlpha: 0,
-                y: mobile ? -14 : 0,
-                duration: mobile ? 0.28 : 0.22,
+            tl.to(previous, {
+              autoAlpha: 0,
+              duration: outDuration,
+              ease: "none"
+            })
+              .to(previousNav, {
+                opacity: 0.28,
+                duration: 0.12,
                 ease: "none"
-              },
-              at - (mobile ? 0.2 : 0.22)
-            )
-              .to(
-                slides[i],
-                {
-                  autoAlpha: 1,
-                  y: 0,
-                  duration: mobile ? 0.38 : 0.26,
-                  ease: "power2.inOut"
-                },
-                at
-              )
-              .to(
-                navItems[i - 1],
-                { opacity: 0.28, duration: 0.18 },
-                at - 0.08
-              )
-              .to(
-                navItems[i],
-                { opacity: 1, duration: 0.18 },
-                at
-              );
-
-            if (!mobile) {
-              tl.to(
-                slides[i],
-                { autoAlpha: 1, y: 0, duration: 0.62, ease: "none" },
-                at + 0.26
-              );
-            }
-          }
-
-          if (detail && !mobile) {
-            tl.to(detail, { opacity: 1, x: 0, duration: 0.32, ease: "power2.out" }, 0.95)
-              .to(detail, { opacity: 0, x: -24, duration: 0.24, ease: "none" }, 1.7);
+              }, "<")
+              .to(current, {
+                autoAlpha: 1,
+                duration: inDuration,
+                ease: "power2.out"
+              })
+              .to(currentNav, {
+                opacity: 1,
+                duration: 0.14,
+                ease: "power2.out"
+              }, "<")
+              .to(current, {
+                autoAlpha: 1,
+                duration: hold,
+                ease: "none"
+              });
           }
 
           const finalSlide = slides[slides.length - 1];
           if (finalSlide) {
-            tl.to(finalSlide, { autoAlpha: 1, y: 0, duration: mobile ? 0.9 : 0.72, ease: "none" }, ">");
+            tl.to(finalSlide, {
+              autoAlpha: 1,
+              duration: mobile ? 0.78 : 1.05,
+              ease: "none"
+            });
           }
         };
 
@@ -130,16 +119,26 @@ export default function StructureSection() {
   }, []);
 
   return (
-    <section id="estrutura" ref={sectionRef} className={styles.section} aria-label="Estrutura da Academia Área 51">
+    <section
+      id="estrutura"
+      ref={sectionRef}
+      className={styles.section}
+      aria-label="Estrutura da Academia Área 51"
+    >
       <div ref={stageRef} className={styles.desktopStage}>
         <div className={styles.introLine}>
           <span className="sectionLabel">Estrutura real</span>
-          <p>O espaço fala por si.</p>
+          <p>Três áreas. Cada uma com um jeito de treinar.</p>
         </div>
 
         <div className={styles.slides}>
           {STRUCTURE_CHAPTERS.map((chapter, index) => (
-            <article key={chapter.id} data-structure-slide className={styles.slide}>
+            <article
+              key={chapter.id}
+              data-structure-slide
+              className={styles.slide}
+              aria-label={chapter.label}
+            >
               <div className={styles.media}>
                 <Image
                   src={chapter.image}
@@ -164,13 +163,11 @@ export default function StructureSection() {
           ))}
         </div>
 
-        <div className={styles.forceDetail} data-force-detail aria-hidden="true">
-          <Image src="/assets/area51/interior-alt.png" alt="" fill quality={82} sizes="18vw" />
-        </div>
-
         <div className={styles.nav} aria-hidden="true">
           {STRUCTURE_CHAPTERS.map((chapter) => (
-            <span key={chapter.id} data-structure-nav>{chapter.label}</span>
+            <span key={chapter.id} data-structure-nav>
+              {chapter.label}
+            </span>
           ))}
         </div>
       </div>
