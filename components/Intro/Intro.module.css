@@ -6,7 +6,7 @@
   place-items: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 52% 48%, rgba(115, 255, 47, 0.055), transparent 34%),
+    radial-gradient(circle at 50% 48%, rgba(115, 255, 47, 0.075), transparent 31%),
     #020302;
   transition: opacity 340ms ease, visibility 340ms ease;
 }
@@ -16,78 +16,48 @@
   opacity: 0;
 }
 
-.light {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(72vw, 52rem);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(115, 255, 47, 0.18), rgba(155, 255, 111, 0.7), rgba(115, 255, 47, 0.18), transparent);
-  opacity: 0;
-  transform: translate(-50%, -50%) scaleX(0.2);
-  animation: lightSweep 720ms var(--ease-out) both;
-}
-
-.wordmark {
+.logo {
   position: relative;
-  z-index: 2;
-  display: grid;
-  justify-items: center;
-  gap: 0.5rem;
-  text-align: center;
-}
-
-.signal {
-  position: relative;
-  display: block;
-  width: clamp(2.4rem, 5vw, 4.6rem);
-  height: 1px;
-  margin-bottom: 0.35rem;
+  width: clamp(10rem, 17vw, 15rem);
+  aspect-ratio: 1;
   overflow: hidden;
-  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.92);
+  animation: logoIn 620ms var(--ease-out) 80ms both;
+  box-shadow:
+    0 0 0 1px rgba(115, 255, 47, 0.14),
+    0 22px 70px rgba(0, 0, 0, 0.42),
+    0 0 70px rgba(115, 255, 47, 0.08);
 }
 
-.signal i {
-  display: block;
-  width: 46%;
+.logo img {
+  width: 100%;
   height: 100%;
-  background: var(--green);
-  animation: signal 820ms var(--ease-out) both;
+  object-fit: cover;
 }
 
-.wordmark strong {
-  font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(2.8rem, 7vw, 6.4rem);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 0.88;
-}
-
-.city {
-  color: rgba(244, 247, 242, 0.48);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.19em;
-  text-transform: uppercase;
-}
-
-@keyframes lightSweep {
-  0% { opacity: 0; transform: translate(-50%, -50%) scaleX(0.18); }
-  45% { opacity: 1; }
-  100% { opacity: 0.42; transform: translate(-50%, -50%) scaleX(1); }
-}
-
-@keyframes signal {
-  from { transform: translateX(-120%); }
-  to { transform: translateX(0); }
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 760px) {
-  .wordmark strong { font-size: clamp(2.8rem, 17vw, 5.1rem); }
-  .light { width: 88vw; }
+  .logo {
+    width: clamp(9rem, 42vw, 13rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .light { opacity: 0.35; transform: translate(-50%, -50%) scaleX(1); animation: none; }
-  .signal i { animation: none; }
+  .logo {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
