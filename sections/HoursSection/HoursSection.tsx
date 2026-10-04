@@ -8,6 +8,7 @@ export default function HoursSection() {
   const morningRef = useRef<HTMLDivElement>(null);
   const nightRef = useRef<HTMLDivElement>(null);
   const scheduleRef = useRef<HTMLDivElement>(null);
+  const axisRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     let ctx: { revert: () => void } | undefined;
@@ -36,7 +37,8 @@ export default function HoursSection() {
           }
         });
 
-        tl.to(morningRef.current, { opacity: 0, y: -46, duration: 0.32, ease: "none" }, 0.2)
+        tl.to(axisRef.current, { width: "100%", duration: 1, ease: "none" }, 0)
+          .to(morningRef.current, { opacity: 0, y: -46, duration: 0.32, ease: "none" }, 0.2)
           .to(nightRef.current, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.35)
           .to(nightRef.current, { opacity: 0, y: -34, duration: 0.22, ease: "none" }, 0.68)
           .to(scheduleRef.current, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 0.73);
@@ -52,7 +54,7 @@ export default function HoursSection() {
   return (
     <section ref={sectionRef} className={styles.section} aria-label="Horários da Academia Área 51">
       <div className={styles.sticky}>
-        <div className={styles.axis} aria-hidden="true"><i /></div>
+        <div className={styles.axis} aria-hidden="true"><i ref={axisRef} /></div>
 
         <div ref={morningRef} className={styles.moment}>
           <strong data-display>04:00</strong>
