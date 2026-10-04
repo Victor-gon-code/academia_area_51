@@ -22,7 +22,7 @@ export default function RoutineSection() {
             alt="Entrada e recepção reais da Academia Área 51, com equipamentos ao redor"
             fill
             quality={88}
-            sizes="(max-width: 900px) 100vw, 40vw"
+            sizes="(max-width: 900px) 92vw, 40vw"
           />
         </div>
         <div className={styles.caption} aria-hidden="true">
