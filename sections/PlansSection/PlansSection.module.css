@@ -107,6 +107,18 @@
   text-transform: uppercase;
 }
 
+.cta span,
+.mobilePlans > a span {
+  transition: transform 220ms var(--ease-out);
+}
+
+.cta:hover span,
+.cta:focus-visible span,
+.mobilePlans > a:hover span,
+.mobilePlans > a:focus-visible span {
+  transform: translate(2px, -2px);
+}
+
 .mobilePlans { display: none; }
 
 @media (max-width: 900px) {
